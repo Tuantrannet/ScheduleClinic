@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%; /* Đã chỉnh sang màu Blue cho hợp giao diện mới */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    /* ... (giữ nguyên các biến dark mode khác) */
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  /* 1. Thiết lập nền xám cho toàn trang web (phần desktop bao quanh) */
+  body {
+    @apply bg-slate-200 text-foreground overflow-x-hidden overflow-y-scroll;
+  }
+
+  /* 2. Ép khung ứng dụng thành giao diện Mobile */
+  #root {
+    @apply mx-auto max-w-[430px] min-h-screen bg-background shadow-2xl relative overflow-x-hidden;
+    /* max-w-[430px]: Kích thước tương đương iPhone Pro Max */
+    /* mx-auto: Căn giữa màn hình */
+    /* shadow-2xl: Tạo bóng đổ để nổi bật khung điện thoại */
+  }
+
+  /* 3. QUAN TRỌNG: Sửa lỗi các thành phần 'fixed' (Header, Footer) bị tràn lề */
+  /* Đoạn này ép các thẻ có class 'fixed' phải nằm gọn trong khung 430px */
+  #root header.fixed, 
+  #root footer.fixed,
+  #root .fixed {
+    @apply max-w-[430px] left-1/2 -translate-x-1/2 w-full; 
+    /* left-1/2 -translate-x-1/2: Kỹ thuật căn giữa cho element fixed */
+  }
+}
