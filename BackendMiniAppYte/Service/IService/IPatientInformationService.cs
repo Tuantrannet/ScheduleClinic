@@ -1,4 +1,5 @@
-﻿using Backend.Enities;
+﻿using Backend.DTO.Respond;
+using Backend.Enities;
 
 namespace Backend.Service.IService
 {
@@ -6,11 +7,10 @@ namespace Backend.Service.IService
     {
         Task CreateAsync(PatientInformation addInformation);
 
-        Task<PatientInformation?> UpdateAsync(int Id, PatientInformation upInformation);
+        Task<PatientInfoDto?> UpdateAsync(int Id, PatientInformation upPatientInformation);
 
         Task DeleteAsync(int Id);
-
-        Task<PatientInformation?> GetInformationByIdAsync(int Id);
+        Task<PatientInfoDto?> GetInformationByIdAsync(int Id);
 
 
     }

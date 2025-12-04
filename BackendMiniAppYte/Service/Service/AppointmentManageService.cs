@@ -22,7 +22,10 @@ namespace Backend.Service.Service
         {
             var query = appointmentRepo.GetAllAppointmentAsync();
 
-            query = query.Where(x => x.AppointmentDate.Date == dateCondition);
+            if (dateCondition != null)
+            {
+                query = query.Where(x => x.AppointmentDate.Date == dateCondition);
+            }
             if (status != null)
             {
                 query = query.Where(x => x.Status == status);
@@ -40,7 +43,7 @@ namespace Backend.Service.Service
         }
 
         // Cập nhật trạng thái của lịch hẹn 
-        public async Task UpdateStatusAsync(int Id, string status)
+        public async Task AcceptOrRejectAsync(int Id, string status)
         {
             var affect = await appointmentRepo.UpdateStatusByIdAsync(Id, status);
             if (affect == false)

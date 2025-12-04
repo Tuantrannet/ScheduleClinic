@@ -21,7 +21,7 @@ namespace Backend.Controllers
         // POST: api/PatientInformation
         [HttpPost]
         [Route("add")]
-        public async Task<ActionResult<PatientInformation>> CreateInformation([FromBody]PatientInformation addInformation)
+        public async Task<ActionResult> CreateInformation([FromBody]PatientInformation addInformation)
         {
 
             await patientService.CreateAsync(addInformation);
@@ -33,7 +33,7 @@ namespace Backend.Controllers
         // GET: api/PatientInformation/5
         [HttpGet]
         [Route("getDetail")]
-        public async Task<ActionResult<PatientInformation>> GetInformationById([FromQuery]int id)
+        public async Task<ActionResult> GetInformationById([FromQuery]int id)
         {
             var information = await patientService.GetInformationByIdAsync(id);
             return Ok(information);

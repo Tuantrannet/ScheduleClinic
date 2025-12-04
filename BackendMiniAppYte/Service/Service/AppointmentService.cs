@@ -85,7 +85,7 @@ namespace Backend.Service.Service
 
             if(appointment == null)
             {
-                throw new KeyNotFoundException("Not find data about question");
+                throw new KeyNotFoundException("Not find data about appointment");
             }
 
             var appointmentDto = mapper.Map<AppointmentDto>(appointment);

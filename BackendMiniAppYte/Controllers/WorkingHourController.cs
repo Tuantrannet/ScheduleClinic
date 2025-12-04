@@ -18,7 +18,8 @@ namespace Backend.Controllers
 
         // GET: api/WorkingHour/{id}
         [HttpGet]
-        public async Task<ActionResult<WorkingHour>> GetByIdAsync([FromQuery]int id)
+        [Route("getDetail")]
+        public async Task<ActionResult> GetByIdAsync([FromQuery]int id)
         {
             var result = await workingHourService.GetByIdAsync(id);
             return Ok(result);
@@ -26,7 +27,8 @@ namespace Backend.Controllers
 
         // GET: api/WorkingHour
         [HttpGet]
-        public async Task<ActionResult<List<WorkingHour>>> GetListWorkingHour()
+        [Route("getAll")]
+        public async Task<ActionResult> GetListWorkingHour()
         {
             var list = await workingHourService.GetListWorkingHour();
             return Ok(list);
@@ -34,15 +36,17 @@ namespace Backend.Controllers
 
         // POST: api/WorkingHour
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromBody] WorkingHour workingHour)
+        [Route("add")]
+        public async Task<IActionResult> CreateAsync([FromBody]WorkingHour workingHour)
         {
             await workingHourService.CreateAsync(workingHour);
-            return ;
+            return NoContent() ;
         }
 
         // PUT: api/WorkingHour/{id}
         [HttpPut]
-        public async Task<ActionResult<WorkingHour>> UpdateAsync([FromQuery]int Id, [FromBody] WorkingHour workingHour)
+        [Route("update")]
+        public async Task<ActionResult> UpdateAsync([FromBody] WorkingHour workingHour)
         {
             var updated = await workingHourService.UpdateAsync(workingHour);
             return Ok(updated);
@@ -50,6 +54,7 @@ namespace Backend.Controllers
 
         // DELETE: api/WorkingHour/{id}
         [HttpDelete]
+        [Route("delete")]
         public async Task<IActionResult> DeleteAsync([FromQuery]int id)
         {
             await workingHourService.DeleteAsync(id);

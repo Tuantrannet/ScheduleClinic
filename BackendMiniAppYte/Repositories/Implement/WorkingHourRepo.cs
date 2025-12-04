@@ -19,8 +19,8 @@ namespace Backend.Repositories.Implement
         public async Task<WorkingHour?> GetByIdAsync(int id)
         {
             // Không cần .Include vì WorkingHour không có quan hệ phức tạp
-            return await dataContext.WorkingHours
-                                    .FirstOrDefaultAsync(w => w.WorkingId == id);
+            var workingHour =  await dataContext.WorkingHours.FirstOrDefaultAsync(w => w.WorkingId == id);
+            return workingHour;
         }
 
         public async Task AddAsync(WorkingHour workingHour)
@@ -35,7 +35,8 @@ namespace Backend.Repositories.Implement
                                           .ExecuteUpdateAsync(x => x
                                               .SetProperty(u => u.TimeStart, workingHour.TimeStart)
                                               .SetProperty(u => u.TimeEnd, workingHour.TimeEnd)
-                                              .SetProperty(u => u.Duration, workingHour.Duration));
+                                              .SetProperty(u => u.Duration, workingHour.Duration)
+                                              .SetProperty(u=> u.Description , workingHour.Description));
 
             return affect > 0;
         }

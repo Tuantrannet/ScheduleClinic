@@ -34,9 +34,9 @@ namespace Backend.Controllers
 
         [HttpPut]
         [Route("updateStatus")]
-        public async Task<IActionResult> UpdateStatusById([FromQuery]int id, [FromQuery]string status)
+        public async Task<IActionResult> AcceptOrRejectById([FromQuery]int id, [FromQuery]string status)
         {
-            await appointmentManageService.UpdateStatusAsync(id, status);
+            await appointmentManageService.AcceptOrRejectAsync(id, status);
             return NoContent();
         }
     }

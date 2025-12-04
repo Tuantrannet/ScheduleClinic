@@ -1,4 +1,6 @@
-﻿using Backend.Enities;
+﻿using AutoMapper;
+using Backend.DTO.Respond;
+using Backend.Enities;
 using Backend.Repositories.Interface;
 using Backend.Service.IService;
 using Microsoft.EntityFrameworkCore.Update.Internal;
@@ -8,10 +10,12 @@ namespace Backend.Service.Service
     public class PatientInformationService : IPatientInformationService
     {
         private readonly IPatientInformationRepo patientInformationRepo;
+        private readonly IMapper mapper;
 
-        public PatientInformationService(IPatientInformationRepo patientInformationRepo)
+        public PatientInformationService(IPatientInformationRepo patientInformationRepo, IMapper mapper)
         {
             this.patientInformationRepo = patientInformationRepo;
+            this.mapper = mapper;
         }
 
         public async Task CreateAsync(PatientInformation patientInformation)
@@ -21,7 +25,7 @@ namespace Backend.Service.Service
             await patientInformationRepo.SaveChanges();
         }
 
-        public async Task<PatientInformation?> UpdateAsync(int Id ,PatientInformation upPatientInformation)
+        public async Task<PatientInfoDto?> UpdateAsync(int Id ,PatientInformation upPatientInformation)
         {
             var affect = await patientInformationRepo.UpdateAsync(Id, upPatientInformation);
 
@@ -30,7 +34,8 @@ namespace Backend.Service.Service
              throw new KeyNotFoundException("Not find data to update");
             }
 
-            return upPatientInformation;
+            var upPatientInfoDto = mapper.Map<PatientInfoDto>(upPatientInformation);
+            return upPatientInfoDto;
         }
 
         public async Task DeleteAsync(int Id)
@@ -42,11 +47,17 @@ namespace Backend.Service.Service
             }
         }
 
-        public async Task<PatientInformation?> GetInformationByIdAsync(int Id)
+        public async Task<PatientInfoDto?> GetInformationByIdAsync(int Id)
         {
             var patientInformation = await patientInformationRepo.GetByIdAsync(Id);
 
-            return patientInformation; ;
+            if (patientInformation == null)
+            {
+                throw new KeyNotFoundException("Not find data");
+            }
+
+            var patientInfoDto = mapper.Map<PatientInfoDto>(patientInformation);
+            return patientInfoDto;
         }
     }
 }

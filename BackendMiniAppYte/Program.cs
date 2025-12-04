@@ -20,16 +20,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DataContext")));
 
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("AllowFrontend", policy =>
-//    {
-//        policy.WithOrigins("http://localhost:5185", "https://localhost:7179")
-//              .AllowAnyHeader()
-//              .AllowAnyMethod()
-//              .AllowCredentials();
-//    });
-//});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5185", "https://localhost:7296")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
 
 
 builder.Services.AddScoped<IAppointmentRepo, AppointmentRepo>();
@@ -37,6 +37,8 @@ builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IPatientInformationRepo, PatientInformationRepo>();
 builder.Services.AddScoped<IPatientInformationService, PatientInformationService>();
 builder.Services.AddScoped<IAppointmentManageService, AppointmentManageService>();
+builder.Services.AddScoped<IWorkingHourRepo, WorkingHourRepo>();
+builder.Services.AddScoped<IWorkingHourService, WorkingHourService>();
 
 builder.Services.AddAutoMapper(typeof(AutoMappingProfile));
 var app = builder.Build();
@@ -47,6 +49,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandling>();
 
 app.UseHttpsRedirection();
 
