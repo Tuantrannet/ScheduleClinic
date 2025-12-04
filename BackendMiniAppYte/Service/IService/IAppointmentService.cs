@@ -12,10 +12,6 @@ namespace Backend.Service.IService
 
         Task DeleteAsync(int Id);
 
-        Task<List<AppointmentDto>> GetAllAppointmentByCondition(string? status, DateTimeOffset? dateCondition, int page);
-
-        Task<AppointmentDto?> GetAppointmentByAppointmnetId(int Id);
-
         Task<List<AppointmentDto>> GetListAppointmentByPatientId(int patientId, int page);
 
 

@@ -36,6 +36,7 @@ builder.Services.AddScoped<IAppointmentRepo, AppointmentRepo>();
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IPatientInformationRepo, PatientInformationRepo>();
 builder.Services.AddScoped<IPatientInformationService, PatientInformationService>();
+builder.Services.AddScoped<IAppointmentManageService, AppointmentManageService>();
 
 builder.Services.AddAutoMapper(typeof(AutoMappingProfile));
 var app = builder.Build();

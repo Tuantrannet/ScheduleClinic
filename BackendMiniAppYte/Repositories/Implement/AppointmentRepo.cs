@@ -1,6 +1,7 @@
 ﻿using Backend.Enities;
 using Backend.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace Backend.Repositories.Implement
 {
@@ -43,6 +44,14 @@ namespace Backend.Repositories.Implement
             return affect > 0;
         }
 
+        public async Task<bool> UpdateStatusByIdAsync(int Id, string status)
+        {
+            var affect = await dataContext.Appointments.Where(x => x.AppointmentId == Id)
+                                .ExecuteUpdateAsync(x => x.SetProperty(u => u.Status, status));
+
+            return affect > 0;
+        }
+                
         public IQueryable<Appointment> GetAllAppointmentAsync()
         {
             return dataContext.Appointments.AsQueryable();

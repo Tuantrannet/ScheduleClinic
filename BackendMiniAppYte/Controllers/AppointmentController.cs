@@ -42,22 +42,6 @@ namespace Backend.Controllers
         }
 
         [HttpGet]
-        [Route("getAllByCondition")]
-        public async Task<IActionResult> GetAllAppointmentsByCondition([FromQuery]string? status,[FromQuery] DateTimeOffset? dateCondition, [FromQuery] int page)
-        {
-            var appointments = await appointmentService.GetAllAppointmentByCondition(status, dateCondition, page);
-            return Ok(appointments);    
-        }
-
-        [HttpGet]
-        [Route("getDetailByAppointmentId")]
-        public async Task<IActionResult> GetAppointmentByAppointmentId([FromQuery]int appointmentId)
-        {
-            var appointment = await appointmentService.GetAppointmentByAppointmnetId(appointmentId);
-            return Ok(appointment);
-        }
-
-        [HttpGet]
         [Route("getAllByPatient")]
         public async Task<IActionResult> GetAllAppointmentsByPatientId([FromQuery]int patientId, [FromQuery] int page)
         {

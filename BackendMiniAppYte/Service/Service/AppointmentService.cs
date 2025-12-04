@@ -34,7 +34,6 @@ namespace Backend.Service.Service
             {
                 PatientId = newAppointment.PatientId,
                 AppointmentDate = newAppointment.AppointmentDate,
-                ReasonForVisit = newAppointment.ReasonForVisit,
                 Status = "Pending"
             };
 
@@ -52,8 +51,7 @@ namespace Backend.Service.Service
             var updateAppointment = new Appointment()
             {
                 AppointmentDate = requestAppointment.AppointmentDate,
-                Status = requestAppointment.Status,
-                ReasonForVisit = requestAppointment.ReasonForVisit         
+                Status = "Pending",
             };
             var affect = await appointmentRepository.UpdateAppointmentByIdAsync(requestAppointment.AppoinmentId, updateAppointment);
 
@@ -78,27 +76,7 @@ namespace Backend.Service.Service
             
         }
 
-        //Lấy tất cả cuộc hẹn theo điều kiện
-        public async Task<List<AppointmentDto>> GetAllAppointmentByCondition(string? status, DateTimeOffset? dateCondition, int page)
-        {
-            var query = appointmentRepository.GetAllAppointmentAsync();
-
-            query = query.Where(x => x.AppointmentDate.Date == dateCondition);
-            if (status != null)
-            {
-                query = query.Where(x => x.Status == status);
-            }
-
-            var appointmentList = await query.Skip((page-1)*5).Take(5).ToListAsync();
-            if (appointmentList.Count == 0)
-            {
-                 throw new KeyNotFoundException("Not find data with condition");
-            }
-
-            var appointmentsDto = mapper.Map<List<AppointmentDto>>(appointmentList);
-
-            return appointmentsDto;
-        }
+        
 
         //Lấy chi tiết cuộc hẹn bằng AppointmentId 
         public async Task<AppointmentDto?> GetAppointmentByAppointmnetId(int Id)

@@ -17,6 +17,8 @@ namespace Backend.Repositories.Interface
 
         Task<bool> CheckExitInDayAsync(int patient, DateTimeOffset registerDate);
 
+        Task<bool> UpdateStatusByIdAsync(int Id, string status);
+
 
     }
 }
