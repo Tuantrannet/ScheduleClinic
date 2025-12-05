@@ -1,17 +1,112 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useBookingSystem } from '../hooks/useBookingSystem';
+import type {BookingData } from '../hooks/useBookingSystem';
 import AdminFilter from '../components/admin/AdminFilter';
 import BookingCard from '../components/admin/BookingCard';
 import AdminTimeSettings from '../components/admin/AdminTimeSettings';
+import { createPortal } from 'react-dom';
 
-const ITEMS_PER_PAGE = 5; // Số lượng card mỗi trang
+const ITEMS_PER_PAGE = 5;
+
+// --- COMPONENT MODAL CHI TIẾT (Dữ liệu mẫu) ---
+interface DetailModalProps {
+  booking: BookingData | null;
+  onClose: () => void;
+}
+
+const PatientDetailModal: React.FC<DetailModalProps> = ({ booking, onClose }) => {
+  if (!booking) return null;
+
+  // Dữ liệu giả lập (Sample Data)
+  const mockDetails = {
+    phone: '0905 123 456',
+    dob: '15/08/1995',
+    gender: Math.random() > 0.5 ? 'Nam' : 'Nữ',
+    cccd: '048095000XXX',
+    address: 'Hải Châu, Đà Nẵng',
+    history: 'Tiền sử dị ứng thuốc kháng sinh nhẹ.'
+  };
+
+  return createPortal(
+    <>
+      <div className="fixed inset-0 z-[60] bg-slate-900/20 backdrop-blur-sm transition-all" onClick={onClose} />
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-full max-w-sm px-4 animate-in fade-in zoom-in-95 duration-200">
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+          {/* Header Modal */}
+          <div className="bg-blue-600 p-6 text-white relative">
+            <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h3 className="text-xl font-bold">Hồ sơ bệnh nhân</h3>
+            <p className="text-blue-100 text-sm opacity-90">Chi tiết lịch hẹn #{booking.id.toString().slice(-4)}</p>
+          </div>
+
+          {/* Body Content */}
+          <div className="p-6 space-y-6">
+            <div className="text-center pb-4 border-b border-slate-100">
+              <div className="w-20 h-20 bg-slate-100 rounded-full mx-auto mb-3 flex items-center justify-center text-3xl">
+                {mockDetails.gender === 'Nam' ? '👨🏻‍🦱' : '👩🏻‍🦰'}
+              </div>
+              <h2 className="text-xl font-bold text-slate-800">{booking.fullName}</h2>
+              <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold mt-2
+                ${booking.status === 'pending' ? 'bg-yellow-100 text-yellow-700' : 
+                  booking.status === 'approved' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}
+              `}>
+                {booking.status === 'pending' ? 'Chờ xác nhận' : booking.status === 'approved' ? 'Đã xác nhận' : 'Đã huỷ'}
+              </span>
+            </div>
+
+            <div className="space-y-4">
+              <InfoRow label="Ngày sinh" value={mockDetails.dob} icon="🎂" />
+              <InfoRow label="Giới tính" value={mockDetails.gender} icon="users" />
+              <InfoRow label="Số điện thoại" value={mockDetails.phone} icon="phone" />
+              <InfoRow label="CCCD/CMND" value={mockDetails.cccd} icon="card" />
+              
+              <div className="bg-slate-50 p-4 rounded-xl space-y-2 mt-2">
+                <p className="text-xs font-bold text-slate-400 uppercase">Thông tin khám</p>
+                <div className="flex justify-between text-sm font-medium text-slate-700">
+                  <span>Ngày khám:</span>
+                  <span className="font-bold">{booking.date}</span>
+                </div>
+                <div className="flex justify-between text-sm font-medium text-slate-700">
+                  <span>Giờ hẹn:</span>
+                  <span className="font-bold text-blue-600">{booking.time}</span>
+                </div>
+              </div>
+            </div>
+            
+            <button onClick={onClose} className="w-full py-3 bg-slate-100 font-bold text-slate-600 rounded-xl hover:bg-slate-200 transition-colors">
+              Đóng hồ sơ
+            </button>
+          </div>
+        </div>
+      </div>
+    </>,
+    document.body
+  );
+};
+
+// Helper Row Component
+const InfoRow = ({ label, value, icon }: { label: string, value: string, icon: string }) => (
+  <div className="flex items-center justify-between">
+    <span className="text-sm text-slate-500 font-medium">{label}</span>
+    <span className="text-sm font-bold text-slate-800">{value}</span>
+  </div>
+);
+
+// --- MAIN ADMIN DASHBOARD ---
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
   const { bookings, updateStatus } = useBookingSystem();
   
   const [activeTab, setActiveTab] = useState<'appointments' | 'settings'>('appointments');
+  
+  // State cho Modal
+  const [selectedBooking, setSelectedBooking] = useState<BookingData | null>(null);
 
   // Filter States
   const [filterDate, setFilterDate] = useState('');
@@ -21,13 +116,11 @@ const AdminDashboard: React.FC = () => {
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Auth Check
   useEffect(() => {
     const isAdmin = localStorage.getItem('isAdmin');
     if (!isAdmin) navigate('/login');
   }, [navigate]);
 
-  // Reset về trang 1 mỗi khi thay đổi bộ lọc
   useEffect(() => {
     setCurrentPage(1);
   }, [filterDate, filterTime, filterStatus]);
@@ -37,7 +130,6 @@ const AdminDashboard: React.FC = () => {
     navigate('/login');
   };
 
-  // 1. Lọc dữ liệu
   const filteredBookings = bookings.filter(b => {
     if (filterDate && b.date !== filterDate) return false;
     if (filterTime && b.time !== filterTime) return false;
@@ -45,7 +137,6 @@ const AdminDashboard: React.FC = () => {
     return true;
   });
 
-  // 2. Tính toán phân trang
   const totalPages = Math.ceil(filteredBookings.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const paginatedBookings = filteredBookings.slice(startIndex, startIndex + ITEMS_PER_PAGE);
@@ -80,8 +171,6 @@ const AdminDashboard: React.FC = () => {
                status={filterStatus} setStatus={setFilterStatus}
                onReset={() => { setFilterDate(''); setFilterTime(''); setFilterStatus('all'); }}
                isFiltering={filterDate !== '' || filterTime !== '' || filterStatus !== 'all'}
-               
-               // Truyền Props Phân Trang
                currentPage={currentPage}
                totalPages={totalPages}
                totalRecords={filteredBookings.length}
@@ -94,9 +183,13 @@ const AdminDashboard: React.FC = () => {
                    <p className="text-slate-400 font-medium">Không tìm thấy dữ liệu</p>
                  </div>
                ) : (
-                 // Render danh sách đã phân trang
                  paginatedBookings.map((booking) => (
-                   <BookingCard key={booking.id} booking={booking} onUpdateStatus={updateStatus} />
+                   <BookingCard 
+                     key={booking.id} 
+                     booking={booking} 
+                     onUpdateStatus={updateStatus}
+                     onClick={(selected) => setSelectedBooking(selected)} // <--- Sự kiện mở Modal
+                   />
                  ))
                )}
              </div>
@@ -133,6 +226,12 @@ const AdminDashboard: React.FC = () => {
           <span className="text-[10px] font-bold">Cấu hình giờ</span>
         </button>
       </div>
+
+      {/* --- RENDER MODAL TẠI ĐÂY --- */}
+      <PatientDetailModal 
+        booking={selectedBooking} 
+        onClose={() => setSelectedBooking(null)} 
+      />
     </div>
   );
 };

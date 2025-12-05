@@ -8,11 +8,19 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (username === 'admin' && password === '123') {
+    
+    // Yêu cầu: Nếu là admin / admin -> Chuyển sang trang CRUD Account
+    if (username === 'admin' && password === 'admin') {
       localStorage.setItem('isAdmin', 'true');
-      navigate('/admin');
-    } else {
-      alert('Tài khoản hoặc mật khẩu không đúng! (Gợi ý: admin / admin123)');
+      navigate('/account-manager'); // <--- ĐIỂM THAY ĐỔI
+    } 
+    // Giữ lại logic cũ (admin / 123) để vào trang quản lý Admin Dashboard (nếu cần)
+    else if (username === 'admin' && password === '123') {
+       localStorage.setItem('isAdmin', 'true');
+       navigate('/admin');
+    }
+    else {
+      alert('Tài khoản hoặc mật khẩu không đúng! (Thử: admin / admin)');
     }
   };
 
@@ -25,8 +33,8 @@ const Login: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
             </svg>
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-800">Đăng nhập Admin</h2>
-          <p className="text-slate-400 text-sm mt-1">Vui lòng đăng nhập để quản lý</p>
+          <h2 className="text-2xl font-extrabold text-slate-800">Cổng Quản Trị</h2>
+          <p className="text-slate-400 text-sm mt-1">Đăng nhập để quản lý hệ thống</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
@@ -37,7 +45,8 @@ const Login: React.FC = () => {
               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
               value={username}
               onChange={e => setUsername(e.target.value)}
-              placeholder="admin"
+              placeholder="Nhập username"
+              autoFocus
             />
           </div>
           <div>
