@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Backend.Enities
 {
@@ -16,6 +17,8 @@ namespace Backend.Enities
 
         [StringLength(10)]
         public string? Gender { get; set; }  // "Male", "Female", "Other"
+
+        public string? Birthday { get; set; }
 
         [Required(ErrorMessage = "Số điện thoại là bắt buộc.")]
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ.")]

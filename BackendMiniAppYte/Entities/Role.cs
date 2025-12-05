@@ -9,6 +9,6 @@ namespace Backend.Entities
 
         public string RoleName { get; set; }
 
-        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

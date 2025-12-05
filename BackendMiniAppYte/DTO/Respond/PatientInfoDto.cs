@@ -12,6 +12,8 @@ namespace Backend.DTO.Respond
         [Required(ErrorMessage = "Số điện thoại là bắt buộc.")]
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ.")]
         [StringLength(10)]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
+
+        public string? BirthDay  { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace Backend.Repositories.Implement
 
         public IQueryable<User> GetAllAsync()
         {
-            return dataContext.Users.AsQueryable();
+            return dataContext.Users.AsQueryable().AsNoTracking();
         }
 
         public async Task AddAsync(User user)
@@ -48,5 +48,6 @@ namespace Backend.Repositories.Implement
             var user = await  dataContext.Users.Where(x=> x.UserId == id).ExecuteDeleteAsync();
 
         }
+
     }
 }

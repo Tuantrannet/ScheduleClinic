@@ -15,9 +15,7 @@ namespace Backend.Enities
         [Required(ErrorMessage = "Status is required")]
         public string Status { get; set; } = "Pending";
 
-        public string ReasonForReject   { get; set; } = string.Empty;
-
-        public PatientInformation? PatientInformation { get; set; }
+        public PatientInformation PatientInformation { get; set; }
 
     }
 }

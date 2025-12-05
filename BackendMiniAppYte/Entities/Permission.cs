@@ -11,7 +11,7 @@ namespace Backend.Entities
 
         public string GroupName { get; set; } // Quan ly chuc nang
 
-        public ICollection<PermissionRole> PermissionRoles { get; set; }
+        public ICollection<PermissionRole>  PermissionRoles { get; set; } = new List<PermissionRole>();
 
     }
 }
