@@ -10,6 +10,8 @@ namespace Backend.Repositories.Interface
 
         Task<bool> ExistAsync(int roleId, int permissionId);
 
-        IQueryable<PermissionRole> PermissionRolesTable(IEnumerable<int> roleIds);
+        IQueryable<PermissionRole> PermissionRolesTableByRoleId(IEnumerable<int> roleIds);
+
+        IQueryable<PermissionRole> PermissionRolesTable();
     }
 }

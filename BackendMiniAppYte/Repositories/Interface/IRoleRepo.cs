@@ -15,5 +15,7 @@ namespace Backend.Repositories.Interface
         Task<bool> UpdateRoleAsync(Role role);
 
         IQueryable<Role> RolesTable();
+
+        Task SaveChanges();
     }
 }

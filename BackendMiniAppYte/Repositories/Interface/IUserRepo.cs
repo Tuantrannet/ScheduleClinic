@@ -12,6 +12,12 @@ namespace Backend.Repositories.Interface
 
         Task AddAsync(User user);
 
-        Task UpdateAsync(User user);
+        Task<bool> UpdateAsync(User user);
+
+        Task<bool> CheckUserIsExist(string userName);
+
+        Task DeleteAsync(int id);
+
+        Task SaveChanges();
     }
 }

@@ -48,7 +48,12 @@ namespace Backend.Repositories.Implement
 
         public IQueryable<Permission> PermissionTable()
         {
-            return dataContext.Permissions.AsQueryable();
+            return dataContext.Permissions.AsNoTracking().AsQueryable();
+        }
+
+        public async Task SaveChanges()
+        {
+            await dataContext.SaveChangesAsync();
         }
     }
 }

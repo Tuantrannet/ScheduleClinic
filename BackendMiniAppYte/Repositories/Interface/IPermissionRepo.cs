@@ -16,6 +16,6 @@ namespace Backend.Repositories.Interface
         //Loading
         IQueryable<Permission> PermissionTable();
 
-
+        Task SaveChanges();
     }
 }

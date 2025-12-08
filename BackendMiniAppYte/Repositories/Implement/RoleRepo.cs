@@ -3,6 +3,7 @@ using Backend.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Data;
+using System.Formats.Asn1;
 
 namespace Backend.Repositories.Implement
 {
@@ -32,7 +33,6 @@ namespace Backend.Repositories.Implement
         public async Task AddRoleAsync(Role role)
         {
             await dataContext.Roles.AddAsync(role);
-            await dataContext.SaveChangesAsync();
 
         }
 
@@ -58,5 +58,12 @@ namespace Backend.Repositories.Implement
         {
             return dataContext.Roles.AsQueryable().AsNoTracking();
         }
+
+        public async Task SaveChanges()
+        {
+            await dataContext.SaveChangesAsync();
+        } 
+
+        public async Task GetRoleIdByUserId(int )
     }
 }
