@@ -49,9 +49,5 @@ namespace Backend.Repositories.Implement
             return await dataContext.PatientInformations.AnyAsync(e => e.PatientId == id);
         }
 
-        public async Task SaveChanges()
-        {
-            await dataContext.SaveChangesAsync();
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Backend.DTO.Request
+﻿namespace Backend.DTO.Respond
 {
     public class UserDto
     {

@@ -5,6 +5,8 @@ using Backend.Service.IService;
 using Backend.Service.Service;
 using Backend;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Backend.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,11 +36,24 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IAppointmentRepo, AppointmentRepo>();
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<IAppointmentManageService, AppointmentManageService>();
 builder.Services.AddScoped<IPatientInformationRepo, PatientInformationRepo>();
 builder.Services.AddScoped<IPatientInformationService, PatientInformationService>();
-builder.Services.AddScoped<IAppointmentManageService, AppointmentManageService>();
 builder.Services.AddScoped<IWorkingHourRepo, WorkingHourRepo>();
 builder.Services.AddScoped<IWorkingHourService, WorkingHourService>();
+builder.Services.AddScoped<IUserRepo, UserRepo>();
+builder.Services.AddScoped<IUserRoleRepo, UserRoleRepo>();
+builder.Services.AddScoped<IAuthenService, AuthenService>();
+builder.Services.AddScoped<IRoleRepo, RoleRepo>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
+builder.Services.AddScoped<IAuthorizationRepo, AuthorizationRepo>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<PasswordHasher<User>>();
+builder.Services.AddScoped<IRefreshTokenRepo, RefreshTokenRepo>();
+
+
+
 
 builder.Services.AddAutoMapper(typeof(AutoMappingProfile));
 var app = builder.Build();

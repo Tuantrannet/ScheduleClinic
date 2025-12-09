@@ -8,7 +8,5 @@ namespace Backend.Repositories.Interface
         Task AddAsync(PatientInformation patient);
         Task<bool> UpdateAsync(int Id ,PatientInformation patient);
         Task<bool>  DeleteAsync(int id);
-
-        Task SaveChanges();
     }
 }

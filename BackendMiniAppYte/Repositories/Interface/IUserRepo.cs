@@ -18,6 +18,5 @@ namespace Backend.Repositories.Interface
 
         Task DeleteAsync(int id);
 
-        Task SaveChanges();
     }
 }

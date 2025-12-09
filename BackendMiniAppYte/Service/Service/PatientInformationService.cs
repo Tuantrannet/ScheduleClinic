@@ -11,18 +11,21 @@ namespace Backend.Service.Service
     {
         private readonly IPatientInformationRepo patientInformationRepo;
         private readonly IMapper mapper;
+        private readonly IUnitOfWork unitOfWork;
 
-        public PatientInformationService(IPatientInformationRepo patientInformationRepo, IMapper mapper)
+        public PatientInformationService(IPatientInformationRepo patientInformationRepo, IMapper mapper
+            ,IUnitOfWork unitOfWork)
         {
             this.patientInformationRepo = patientInformationRepo;
             this.mapper = mapper;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task CreateAsync(PatientInformation patientInformation)
         {
             await patientInformationRepo.AddAsync(patientInformation);
 
-            await patientInformationRepo.SaveChanges();
+            await unitOfWork.SaveChanges();
         }
 
         public async Task<PatientInfoDto?> UpdateAsync(int Id ,PatientInformation upPatientInformation)

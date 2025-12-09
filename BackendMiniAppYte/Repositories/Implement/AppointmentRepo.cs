@@ -58,10 +58,7 @@ namespace Backend.Repositories.Implement
 
         }
 
-        public async Task SaveChanges()
-        {
-            await dataContext.SaveChangesAsync();
-        }
+        
 
         public async Task<bool> CheckExitInDayAsync(int patientId, DateTimeOffset registerDate)
         {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Backend.DTO;
+using Backend.DTO.Request;
 using Backend.DTO.Respond;
 using Backend.Enities;
 using Backend.Repositories.Interface;
@@ -13,11 +13,12 @@ namespace Backend.Service.Service
     {
         private readonly IAppointmentRepo appointmentRepository;
         private readonly IMapper mapper;
-
-        public AppointmentService(IAppointmentRepo appointmentRepository, IMapper mapper)
+        private readonly IUnitOfWork unitOfWork;
+        public AppointmentService(IAppointmentRepo appointmentRepository, IMapper mapper, IUnitOfWork unitOfWork)
         {
             this.appointmentRepository = appointmentRepository;
             this.mapper = mapper;
+            this.unitOfWork = unitOfWork;
         }
 
         //Tạo cuộc hẹn 
@@ -39,7 +40,7 @@ namespace Backend.Service.Service
 
             await appointmentRepository.AddAppointmentAsync(addAppointment);
 
-            await appointmentRepository.SaveChanges();
+            await unitOfWork.SaveChanges();
 
             
         }

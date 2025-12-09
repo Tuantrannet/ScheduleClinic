@@ -8,17 +8,21 @@ namespace Backend.Service.Service
     {
         private readonly IRoleRepo roleRepo;
         private readonly IUserRoleRepo userRoleRepo;
+        private readonly IUnitOfWork unitOfWork;
 
-        public RoleService(IRoleRepo roleRepo, IUserRoleRepo userRoleRepo)
+
+        public RoleService(IRoleRepo roleRepo, IUserRoleRepo userRoleRepo
+            ,IUnitOfWork unitOfWork)
         {
             this.roleRepo = roleRepo;
             this.userRoleRepo = userRoleRepo;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task CreateRoleAsync(Role role)
         {
             await roleRepo.AddRoleAsync(role);
-            await roleRepo.SaveChanges();
+            await unitOfWork.SaveChanges();
         }
 
         public async Task DeleteRoleAsync(int Id)
@@ -45,7 +49,7 @@ namespace Backend.Service.Service
                 RoleId = roleId
             };
             await userRoleRepo.AddUserRoleAsync(addUserRole);
-            await roleRepo.SaveChanges();
+            await unitOfWork.SaveChanges();
         }
 
         // remove khoi role

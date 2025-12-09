@@ -59,11 +59,8 @@ namespace Backend.Repositories.Implement
             return dataContext.Roles.AsQueryable().AsNoTracking();
         }
 
-        public async Task SaveChanges()
-        {
-            await dataContext.SaveChangesAsync();
-        } 
+       
 
-        public async Task GetRoleIdByUserId(int )
+       
     }
 }

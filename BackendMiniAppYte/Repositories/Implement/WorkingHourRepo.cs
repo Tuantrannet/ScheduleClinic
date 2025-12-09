@@ -33,10 +33,12 @@ namespace Backend.Repositories.Implement
             var affect = await dataContext.WorkingHours
                                           .Where(x => x.WorkingId == Id)
                                           .ExecuteUpdateAsync(x => x
-                                              .SetProperty(u => u.TimeStart, workingHour.TimeStart)
-                                              .SetProperty(u => u.TimeEnd, workingHour.TimeEnd)
+                                              .SetProperty(u => u.Mor_Start, workingHour.Mor_Start)
+                                              .SetProperty(u => u.Mor_End, workingHour.Mor_End)
+                                              .SetProperty(u => u.Aff_Start, workingHour.Aff_Start)
+                                              .SetProperty(u => u.Aff_End, workingHour.Aff_End)
                                               .SetProperty(u => u.Duration, workingHour.Duration)
-                                              .SetProperty(u=> u.Description , workingHour.Description));
+               );
 
             return affect > 0;
         }
@@ -59,12 +61,6 @@ namespace Backend.Repositories.Implement
             return dataContext.WorkingHours.AsQueryable();
         }
 
-        /// <summary>
-        /// Lưu các thay đổi đã được theo dõi vào Database (chỉ dùng cho AddAsync).
-        /// </summary>
-        public async Task SaveChanges()
-        {
-            await dataContext.SaveChangesAsync();
-        }
+
     }
 }

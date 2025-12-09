@@ -63,10 +63,5 @@ namespace Backend.Repositories.Implement
 
         }
 
-        public async Task SaveChanges()
-        {
-            await dataContext.SaveChangesAsync();
-        }
-
     }
 }

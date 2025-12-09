@@ -8,10 +8,12 @@ namespace Backend.Service.Service
     public class WorkingHourService : IWorkingHourService
     {
         private readonly IWorkingHourRepo workingHourRepo;
+        private readonly IUnitOfWork unitOfWork;
 
-        public WorkingHourService(IWorkingHourRepo workingRepo)
+        public WorkingHourService(IWorkingHourRepo workingRepo, IUnitOfWork unitOfWork)
         {
             this.workingHourRepo = workingRepo;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<WorkingHour> GetByIdAsync(int id)
@@ -36,7 +38,7 @@ namespace Backend.Service.Service
         public async Task CreateAsync(WorkingHour workingHour)
         {
             await workingHourRepo.AddAsync(workingHour);
-            await workingHourRepo.SaveChanges();        
+            await unitOfWork.SaveChanges();        
         }
 
         public async Task<WorkingHour> UpdateAsync(WorkingHour upWorking)

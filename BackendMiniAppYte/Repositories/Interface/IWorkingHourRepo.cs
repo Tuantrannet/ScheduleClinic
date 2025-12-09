@@ -11,6 +11,5 @@ namespace Backend.Repositories.Interface
 
         IQueryable<WorkingHour> GetAllWorkingHour();
 
-        Task SaveChanges();
     }
 }

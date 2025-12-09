@@ -13,7 +13,7 @@ namespace Backend.Repositories.Interface
 
         IQueryable<Appointment> GetAllAppointmentAsync();
 
-        Task SaveChanges();
+        
 
         Task<bool> CheckExitInDayAsync(int patient, DateTimeOffset registerDate);
 

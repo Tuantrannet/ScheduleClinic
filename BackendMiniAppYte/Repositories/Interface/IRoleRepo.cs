@@ -16,6 +16,5 @@ namespace Backend.Repositories.Interface
 
         IQueryable<Role> RolesTable();
 
-        Task SaveChanges();
     }
 }
