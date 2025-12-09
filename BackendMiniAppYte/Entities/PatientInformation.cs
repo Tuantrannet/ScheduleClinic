@@ -20,10 +20,11 @@ namespace Backend.Enities
 
         public string? Birthday { get; set; }
 
-        [Required(ErrorMessage = "Số điện thoại là bắt buộc.")]
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ.")]
         [StringLength(10)]
         public string PhoneNumber { get; set; }
+
+        public string CCCD { get; set; }
 
         public ICollection<Appointment> Appointments { get; set; } = new List<Appointment>(); // khoi tao Appointment
         
