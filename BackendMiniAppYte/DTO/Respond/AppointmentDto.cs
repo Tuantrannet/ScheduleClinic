@@ -7,7 +7,7 @@
         public string Status { get; set; } = string.Empty;
 
 
-        public DateTimeOffset AppointmentDate { get; set; }
+        public DateTime AppointmentDate { get; set; }
 
         public PatientInfoDto? PatientInfo { get; set; }
     }

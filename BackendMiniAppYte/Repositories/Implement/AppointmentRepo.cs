@@ -60,7 +60,7 @@ namespace Backend.Repositories.Implement
 
         
 
-        public async Task<bool> CheckExitInDayAsync(int patientId, DateTimeOffset registerDate)
+        public async Task<bool> CheckExitInDayAsync(string patientId, DateTime registerDate)
         {
             var exist = await dataContext.Appointments
                                             .AnyAsync(x => x.AppointmentDate.Date == registerDate.Date && x.PatientId == patientId);

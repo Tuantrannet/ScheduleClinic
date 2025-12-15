@@ -12,7 +12,7 @@ namespace Backend.Service.IService
 
         Task DeleteAsync(int Id);
 
-        Task<List<AppointmentDto>> GetListAppointmentByPatientId(int patientId, int page);
+        Task<List<AppointmentDto>> GetListAppointmentByPatientId(string patientId, int page);
 
 
 

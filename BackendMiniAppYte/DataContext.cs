@@ -44,6 +44,9 @@ namespace Backend
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.RoleId);
 
+            modelBuilder.Entity<RefreshToken>()
+                .HasIndex(r => r.Token)
+                .IsUnique();
         }
     }
 

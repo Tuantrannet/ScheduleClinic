@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Backend.DTO.Request;
 using Backend.DTO.Respond;
 using Backend.Enities;
 using Backend.Repositories.Interface;
@@ -21,27 +22,45 @@ namespace Backend.Service.Service
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task CreateAsync(PatientInformation patientInformation)
+        public async Task CreateAsync(CreatePatientRequestDto request, string zaloid)
         {
-            await patientInformationRepo.AddAsync(patientInformation);
+            var newPatient = new PatientInformation
+            {
+                ZaloId = zaloid, // Gán ZaloId từ token vào đây để Entity hợp lệ
+                PatientName = request.PatientName,
+                Gender = request.Gender,
+                Birthday = request.Birthday,
+                PhoneNumber = request.PhoneNumber,
+                CCCD = request.CCCD
+            };
+            await patientInformationRepo.AddAsync(newPatient);
 
             await unitOfWork.SaveChanges();
         }
 
-        public async Task<PatientInfoDto?> UpdateAsync(int Id ,PatientInformation upPatientInformation)
+        public async Task<CreatePatientRequestDto?> UpdateAsync(string zaloid ,CreatePatientRequestDto request)
         {
-            var affect = await patientInformationRepo.UpdateAsync(Id, upPatientInformation);
+
+            var newPatient = new PatientInformation
+            {
+                ZaloId = zaloid, // Gán ZaloId từ token vào đây để Entity hợp lệ
+                PatientName = request.PatientName,
+                Gender = request.Gender,
+                Birthday = request.Birthday,
+                PhoneNumber = request.PhoneNumber,
+                CCCD = request.CCCD
+            };
+            var affect = await patientInformationRepo.UpdateAsync(zaloid, newPatient);
 
             if (affect == false)
             {
              throw new KeyNotFoundException("Not find data to update");
             }
 
-            var upPatientInfoDto = mapper.Map<PatientInfoDto>(upPatientInformation);
-            return upPatientInfoDto;
+            return request;
         }
 
-        public async Task DeleteAsync(int Id)
+        public async Task DeleteAsync(string Id)
         {
             var affect = await patientInformationRepo.DeleteAsync(Id);
             if(affect == false)
@@ -50,7 +69,7 @@ namespace Backend.Service.Service
             }
         }
 
-        public async Task<PatientInfoDto?> GetInformationByIdAsync(int Id)
+        public async Task<PatientInfoDto?> GetInformationByIdAsync(string Id)
         {
             var patientInformation = await patientInformationRepo.GetByIdAsync(Id);
 
@@ -61,6 +80,12 @@ namespace Backend.Service.Service
 
             var patientInfoDto = mapper.Map<PatientInfoDto>(patientInformation);
             return patientInfoDto;
+        }
+
+        public async Task<bool> CheckZaloIdAsync(string zaloId)
+        {
+            var check = await patientInformationRepo.ExistsAsync(zaloId);
+            return check;
         }
     }
 }

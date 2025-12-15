@@ -6,14 +6,15 @@ namespace Backend.DTO.Respond
     {
         public string PatientName { get; set; } = string.Empty;
 
-        [StringLength(10)]
-        public string? Gender { get; set; }  // "Male", "Female", "Other"
 
-        [Required(ErrorMessage = "Số điện thoại là bắt buộc.")]
-        [Phone(ErrorMessage = "Số điện thoại không hợp lệ.")]
-        [StringLength(10)]
-        public string? PhoneNumber { get; set; }
+        public string Gender { get; set; }  // "Male", "Female", "Other"
 
-        public string? BirthDay  { get; set; }
+        public DateOnly Birthday { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string? CCCD { get; set; }
+
+
     }
 }

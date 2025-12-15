@@ -6,9 +6,9 @@ namespace Backend.DTO.Request
     {
 
         public int AppoinmentId { get; set; }
-        public int PatientId { get; set; }
+        public string PatientId { get; set; }
 
-        public DateTimeOffset AppointmentDate { get; set; }
+        public DateTime AppointmentDate { get; set; }
 
         public string Status { get; set; } = string.Empty;
 

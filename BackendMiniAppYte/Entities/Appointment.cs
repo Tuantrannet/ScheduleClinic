@@ -8,9 +8,9 @@ namespace Backend.Enities
         [Key]
         public int AppointmentId { get; set; }
 
-        public int PatientId { get; set; }
+        public string PatientId { get; set; }
 
-        public DateTimeOffset AppointmentDate { get; set; }
+        public DateTime AppointmentDate { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
         public string Status { get; set; } = "Pending";

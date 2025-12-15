@@ -94,7 +94,7 @@ namespace Backend.Service.Service
         }
 
         //Lấy List cuộc hẹn của Patient
-        public async Task<List<AppointmentDto>> GetListAppointmentByPatientId(int patientId, int page)
+        public async Task<List<AppointmentDto>> GetListAppointmentByPatientId(string patientId, int page)
         {
             int skip = (page - 1) * 5;
             var query = appointmentRepository.GetAllAppointmentAsync();

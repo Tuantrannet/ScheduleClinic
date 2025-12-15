@@ -4,7 +4,7 @@ namespace Backend.Service.IService
 {
     public interface IAppointmentManageService
     {
-        Task<List<AppointmentDto>> GetAllAppointmentByCondition(string? status, DateTimeOffset? dateCondition, int page);
+        Task<List<AppointmentDto>> GetAllAppointmentByCondition(string? status, DateTime? dateCondition, int page);
         Task AcceptOrRejectAsync(int Id, string status);
 
         Task<AppointmentDto?> GetAppointmentByAppointmnetId(int Id);

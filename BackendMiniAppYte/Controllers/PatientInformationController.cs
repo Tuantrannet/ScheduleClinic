@@ -1,4 +1,6 @@
-﻿using Backend.Enities;
+﻿using Azure.Core;
+using Backend.DTO.Request;
+using Backend.Enities;
 using Backend.Service.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,20 +23,26 @@ namespace Backend.Controllers
         // POST: api/PatientInformation
         [HttpPost]
         [Route("add")]
-        public async Task<ActionResult> CreateInformation([FromBody]PatientInformation addInformation)
+        public async Task<ActionResult> CreateInformation([FromBody]CreatePatientRequestDto request)
         {
+            var zaloId = HttpContext.Items["zalo_id"]?.ToString();
+            if (!HttpContext.Items.TryGetValue("zalo_id", out var zaloObj))
+                return Unauthorized();
 
-            await patientService.CreateAsync(addInformation);
+            await patientService.CreateAsync(request, zaloId);
 
-            return Ok();
+            return Ok(new { message = "Cập nhật thông tin thành công" });
         }
 
         // --- 2. Lấy thông tin bệnh nhân theo Id (Read) ---
         // GET: api/PatientInformation/5
         [HttpGet]
         [Route("getDetail")]
-        public async Task<ActionResult> GetInformationById([FromQuery]int id)
+        public async Task<ActionResult> GetInformationById([FromQuery]string id)
         {
+            var zaloId = HttpContext.Items["zalo_id"]?.ToString();
+            if (!HttpContext.Items.TryGetValue("zalo_id", out var zaloObj))
+                return Unauthorized();
             var information = await patientService.GetInformationByIdAsync(id);
             return Ok(information);
         }
@@ -43,9 +51,12 @@ namespace Backend.Controllers
         // PUT: api/PatientInformation/5
         [HttpPut]
         [Route("update")]
-        public async Task<IActionResult> UpdateInformation([FromQuery]int id, [FromBody]PatientInformation upInformation)
+        public async Task<IActionResult> UpdateInformation([FromBody]CreatePatientRequestDto upInformation)
         {
-            var updatedInformation = await patientService.UpdateAsync(id, upInformation);
+            var zaloId = HttpContext.Items["zalo_id"]?.ToString();
+            if (!HttpContext.Items.TryGetValue("zalo_id", out var zaloObj))
+                return Unauthorized();
+            var updatedInformation = await patientService.UpdateAsync(zaloId, upInformation);
             return  Ok(updatedInformation);
         }
 
@@ -53,13 +64,20 @@ namespace Backend.Controllers
         // DELETE: api/PatientInformation/5
         [HttpDelete]
         [Route("delete")]
-        public async Task<IActionResult> DeleteInformation([FromQuery]int id)
+        public async Task<IActionResult> DeleteInformation([FromQuery]string id)
         {
 
             await patientService.DeleteAsync(id);
 
             // Trả về mã 204 No Content báo hiệu xóa thành công
             return NoContent();
+        }
+        [HttpGet]
+        [Route("check")]
+        public async Task<IActionResult> CheckZaloIdExist([FromQuery] string id)
+        {
+            var information = await patientService.CheckZaloIdAsync(id);
+            return Ok(information != null);
         }
     }
 }

@@ -1,16 +1,18 @@
-﻿using Backend.DTO.Respond;
+﻿using Backend.DTO.Request;
+using Backend.DTO.Respond;
 using Backend.Enities;
 
 namespace Backend.Service.IService
 {
     public interface IPatientInformationService
     {
-        Task CreateAsync(PatientInformation addInformation);
+        Task CreateAsync(CreatePatientRequestDto addInformation,string zaloid);
 
-        Task<PatientInfoDto?> UpdateAsync(int Id, PatientInformation upPatientInformation);
+        Task<CreatePatientRequestDto?> UpdateAsync(string Id, CreatePatientRequestDto upPatientInformation);
 
-        Task DeleteAsync(int Id);
-        Task<PatientInfoDto?> GetInformationByIdAsync(int Id);
+        Task DeleteAsync(string Id);
+        Task<PatientInfoDto?> GetInformationByIdAsync(string Id);
+        Task<bool> CheckZaloIdAsync(string id);
 
 
     }

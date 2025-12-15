@@ -18,7 +18,7 @@ namespace Backend.Controllers
 
         [HttpGet]
         [Route("getAllByCondition")]
-        public async Task<IActionResult> GetAllAppointmentsByCondition([FromQuery] string? status, [FromQuery] DateTimeOffset? dateCondition, [FromQuery] int page)
+        public async Task<IActionResult> GetAllAppointmentsByCondition([FromQuery] string? status, [FromQuery] DateTime? dateCondition, [FromQuery] int page)
         {
             var appointments = await appointmentManageService.GetAllAppointmentByCondition(status, dateCondition, page);
             return Ok(appointments);
