@@ -19,6 +19,8 @@ namespace Backend.Repositories.Interface
 
         Task<bool> UpdateStatusByIdAsync(int Id, string status);
 
+        Task<List<Appointment>> GetAppointmentListByDateAsync(DateTime date);
+
 
     }
 }

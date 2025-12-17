@@ -38,7 +38,8 @@ namespace Backend.Repositories.Implement
         {
             var affect = await dataContext.Appointments.Where(x => x.AppointmentId == Id).ExecuteUpdateAsync
                                 (x => x.SetProperty(u=> u.Status,appointment.Status)
-                                        .SetProperty(u => u.AppointmentDate, appointment.AppointmentDate)                                                   
+                                        .SetProperty(u => u.Time_start, appointment.Time_start)
+                                        .SetProperty(u => u.Time_end, appointment.Time_end)
                                 );
 
             return affect > 0;
@@ -63,8 +64,19 @@ namespace Backend.Repositories.Implement
         public async Task<bool> CheckExitInDayAsync(string patientId, DateTime registerDate)
         {
             var exist = await dataContext.Appointments
-                                            .AnyAsync(x => x.AppointmentDate.Date == registerDate.Date && x.PatientId == patientId);
+                                            .AnyAsync(x => x.Time_start.Date == registerDate.Date && x.PatientId == patientId);
             return exist;
         }
+
+        public async Task<List<Appointment>> GetAppointmentListByDateAsync(DateTime date)
+        {
+            var appointments = await dataContext.Appointments
+                                         .Where(a =>
+                                            a.Time_start >= date &&
+                                            a.Time_start < date.AddDays(1))
+                                         .ToListAsync();
+            return appointments;
+        }
+
     }
 }

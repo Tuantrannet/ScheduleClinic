@@ -33,7 +33,9 @@ namespace Backend.Repositories.Implement
                                                 .Where(x => x.ZaloId == Id)
                                                 .ExecuteUpdateAsync(x => x.SetProperty(u => u.PatientName, patient.PatientName)
                                                 .SetProperty(u => u.Gender,patient.Gender)
-                                                .SetProperty(u=> u.PhoneNumber, patient.PhoneNumber));
+                                                .SetProperty(u=> u.PhoneNumber, patient.PhoneNumber)
+                                                .SetProperty(u=> u.Birthday, patient.Birthday)
+                                                .SetProperty(u=> u.CCCD, patient.CCCD));
 
             return affect>0;
         }

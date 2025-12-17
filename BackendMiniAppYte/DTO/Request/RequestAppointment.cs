@@ -4,13 +4,16 @@ namespace Backend.DTO.Request
 {
     public class RequestAppointment
     {
-
         public int AppoinmentId { get; set; }
+        [Required]
         public string PatientId { get; set; }
 
-        public DateTime AppointmentDate { get; set; }
+        [Required]
+        public DateTime Time_Start { get; set; }
 
-        public string Status { get; set; } = string.Empty;
+        [Required]
+        public DateTime Time_End { get; set; }
+
 
     }
 }

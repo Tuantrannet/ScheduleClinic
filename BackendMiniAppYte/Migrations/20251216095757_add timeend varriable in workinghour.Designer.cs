@@ -4,6 +4,7 @@ using Backend;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20251216095757_add timeend varriable in workinghour")]
+    partial class addtimeendvarriableinworkinghour
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +51,7 @@ namespace Backend.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("Appointments", (string)null);
+                    b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("Backend.Enities.PatientInformation", b =>
@@ -79,7 +82,7 @@ namespace Backend.Migrations
 
                     b.HasKey("ZaloId");
 
-                    b.ToTable("PatientInformations", (string)null);
+                    b.ToTable("PatientInformations");
                 });
 
             modelBuilder.Entity("Backend.Enities.WorkingHour", b =>
@@ -107,7 +110,7 @@ namespace Backend.Migrations
 
                     b.HasKey("WorkingId");
 
-                    b.ToTable("WorkingHours", (string)null);
+                    b.ToTable("WorkingHours");
                 });
 
             modelBuilder.Entity("Backend.Entities.RefreshToken", b =>
@@ -133,7 +136,7 @@ namespace Backend.Migrations
                     b.HasIndex("Token")
                         .IsUnique();
 
-                    b.ToTable("RefreshTokens", (string)null);
+                    b.ToTable("RefreshTokens");
                 });
 
             modelBuilder.Entity("Backend.Entities.Role", b =>
@@ -150,7 +153,7 @@ namespace Backend.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Backend.Entities.User", b =>
@@ -174,7 +177,7 @@ namespace Backend.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Backend.Entities.UserRole", b =>
@@ -189,7 +192,7 @@ namespace Backend.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRoles", (string)null);
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("Backend.Enities.Appointment", b =>

@@ -24,7 +24,7 @@ namespace Backend.Service.Service
 
             if (dateCondition != null)
             {
-                query = query.Where(x => x.AppointmentDate.Date == dateCondition);
+                query = query.Where(x => x.Time_start.Date == dateCondition);
             }
             if (status != null)
             {

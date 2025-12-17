@@ -6,6 +6,7 @@ using Backend.Repositories.Interface;
 using Backend.Service.IService;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Backend.Service.Service
 {
@@ -14,17 +15,19 @@ namespace Backend.Service.Service
         private readonly IAppointmentRepo appointmentRepository;
         private readonly IMapper mapper;
         private readonly IUnitOfWork unitOfWork;
-        public AppointmentService(IAppointmentRepo appointmentRepository, IMapper mapper, IUnitOfWork unitOfWork)
+        private readonly IBookingHubService _hubService;
+        public AppointmentService(IAppointmentRepo appointmentRepository, IMapper mapper,
+            IUnitOfWork unitOfWork, IBookingHubService hubService)
         {
             this.appointmentRepository = appointmentRepository;
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
+            _hubService = hubService;
         }
 
-        //Tạo cuộc hẹn 
         public async Task CreateAsync(RequestAppointment newAppointment)
         {
-            var exist = await appointmentRepository.CheckExitInDayAsync(newAppointment.PatientId, newAppointment.AppointmentDate);
+            var exist = await appointmentRepository.CheckExitInDayAsync(newAppointment.PatientId, newAppointment.Time_Start);
 
             if (exist)
             {
@@ -34,24 +37,25 @@ namespace Backend.Service.Service
             var addAppointment = new Appointment
             {
                 PatientId = newAppointment.PatientId,
-                AppointmentDate = newAppointment.AppointmentDate,
+                Time_start = newAppointment.Time_Start,
+                Time_end = newAppointment.Time_End,
                 Status = "Pending"
             };
 
             await appointmentRepository.AddAppointmentAsync(addAppointment);
 
             await unitOfWork.SaveChanges();
+            await _hubService.NotifySlotChanged(DateOnly.FromDateTime((newAppointment.Time_Start)));
 
-            
+
         }
 
-        //Cập nhật cuộc hẹn
         public async Task<RequestAppointment> UpdateAsync(RequestAppointment requestAppointment)
         {
 
             var updateAppointment = new Appointment()
             {
-                AppointmentDate = requestAppointment.AppointmentDate,
+                Time_start = requestAppointment.Time_Start,
                 Status = "Pending",
             };
             var affect = await appointmentRepository.UpdateAppointmentByIdAsync(requestAppointment.AppoinmentId, updateAppointment);
@@ -93,13 +97,13 @@ namespace Backend.Service.Service
             return appointmentDto;
         }
 
-        //Lấy List cuộc hẹn của Patient
+        //Cần sửa lại
         public async Task<List<AppointmentDto>> GetListAppointmentByPatientId(string patientId, int page)
         {
             int skip = (page - 1) * 5;
             var query = appointmentRepository.GetAllAppointmentAsync();
 
-            query = query.Where(x => x.PatientId == patientId).OrderByDescending(x => x.AppointmentDate.Date);
+            query = query.Where(x => x.PatientId == patientId).OrderByDescending(x => x.Time_start.Date);
 
             var appointmentList = await query.Skip(skip).Take(5).ToListAsync();
 
@@ -107,7 +111,10 @@ namespace Backend.Service.Service
             return appointmentsDto;
         }
 
-        //Lấy list cuộc hẹn của 
-
+        public async Task<List<Appointment>> GetListAppointmentByDate(DateOnly date)
+        {
+            var baseDate = date.ToDateTime(TimeOnly.MinValue);
+            return await appointmentRepository.GetAppointmentListByDateAsync(baseDate);
+        }
     }
 }

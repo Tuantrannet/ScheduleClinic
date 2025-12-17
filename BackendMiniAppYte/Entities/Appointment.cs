@@ -4,13 +4,17 @@ namespace Backend.Enities
 {
     public class Appointment
     {
-        [Required]
         [Key]
         public int AppointmentId { get; set; }
 
+        [Required(ErrorMessage = "PatientId is required")]
         public string PatientId { get; set; }
 
-        public DateTime AppointmentDate { get; set; }
+        [Required(ErrorMessage = "Appointment date is required")]
+        public DateTime Time_start { get; set; }
+
+        [Required(ErrorMessage = "Duration is required")]
+        public DateTime Time_end { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
         public string Status { get; set; } = "Pending";

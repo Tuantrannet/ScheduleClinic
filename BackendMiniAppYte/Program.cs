@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Backend.DTO.Model;
+using Backend.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,9 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSet
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSignalR();
+
 
 
 
@@ -33,7 +37,8 @@ builder.Services.AddCors(options =>
         builder => builder
             .WithOrigins("http://localhost:5173") 
             .AllowAnyMethod()
-            .AllowAnyHeader());
+            .AllowAnyHeader()
+            .AllowCredentials()); 
 });
 
 
@@ -55,6 +60,9 @@ builder.Services.AddScoped<PasswordHasher<User>>();
 builder.Services.AddScoped<IAccessTokenService, AccessTokenService>();
 builder.Services.AddScoped<IRefreshTokenRepo, RefreshTokenRepo>();
 builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+builder.Services.AddScoped<ISlotService, SlotService>();
+builder.Services.AddScoped<IBookingHubService, BookingHubService>();
+
 
 
 
@@ -84,6 +92,8 @@ app.UseMiddleware<JwtMiddleware>(); // 👈 SAU routing
 app.UseAuthorization(); // nếu có policy
 
 app.MapControllers();
+
+app.MapHub<BookingHub>("/bookingHub");
 
 app.Run();
 

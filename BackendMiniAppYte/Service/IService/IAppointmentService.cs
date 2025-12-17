@@ -14,6 +14,9 @@ namespace Backend.Service.IService
 
         Task<List<AppointmentDto>> GetListAppointmentByPatientId(string patientId, int page);
 
+        Task<List<Appointment>> GetListAppointmentByDate(DateOnly date);
+
+
 
 
 
