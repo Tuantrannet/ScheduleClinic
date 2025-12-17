@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { patientApi } from '../services/patientService'; // Import service
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -10,18 +11,56 @@ const Home: React.FC = () => {
   const [startX, setStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
 
-  // --- XỬ LÝ NGÀY HIỆN TẠI ---
   const today = new Date();
   const dateStr = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
-  // Lấy tên người dùng từ localStorage
+  // State tên người dùng
   const [userName, setUserName] = useState("Khách hàng");
+
+  // --- LOGIC MỚI: GỌI API LẤY TÊN ---
   useEffect(() => {
-    const user = localStorage.getItem('currentUser');
-    if (user) {
-      setUserName(JSON.parse(user).fullName);
-    }
-  }, []);
+    const fetchUserData = async () => {
+      // 1. Lấy token từ localStorage
+      const token = localStorage.getItem('accessToken');
+      
+      if (token) {
+        try {
+          // 2. Giải mã token để lấy zalo_id
+          // Token gồm 3 phần tách nhau bởi dấu chấm. Payload là phần thứ 2.
+          const base64Url = token.split('.')[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+              return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+          }).join(''));
+
+          const decodedToken = JSON.parse(jsonPayload);
+          // Trong JwtMiddleware, claim type là "zalo_id"
+          const zaloId = decodedToken["zalo_id"];
+
+          if (zaloId) {
+            // 3. Gọi API lấy thông tin chi tiết
+            const data = await patientApi.getDetail(zaloId, token);
+            
+            // Backend trả về PatientInfoDto, map field PatientName (hoặc patientName tùy config JSON của C#)
+            if (data && (data as any).patientName) {
+                setUserName((data as any).patientName);
+            } else if (data && (data as any).PatientName) {
+                setUserName((data as any).PatientName);
+            }
+          }
+        } catch (error) {
+          console.error("Không thể lấy thông tin người dùng:", error);
+          // Fallback: Nếu lỗi API, thử lấy từ localStorage cũ nếu có
+          const localUser = localStorage.getItem('currentUser');
+          if (localUser) {
+             setUserName(JSON.parse(localUser).fullName);
+          }
+        }
+      }
+    };
+
+    fetchUserData();
+  }, []); // Chỉ chạy 1 lần khi mount
 
   const banners = [
     { id: 1, src: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop", title: "Chăm sóc toàn diện" },
@@ -132,8 +171,6 @@ const Home: React.FC = () => {
         <svg className="w-6 h-6 text-white/70 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
       </button>
 
-      {/* ĐÃ XÓA PHẦN QUICK MENU (Tra cứu, STT Khám...) */}
-
       {/* Footer Info */}
       <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm mt-4">
         <h3 className="font-bold text-slate-800 mb-3 text-sm uppercase">Thông tin phòng khám</h3>
@@ -142,7 +179,6 @@ const Home: React.FC = () => {
              <div className="w-5 h-5 bg-blue-50 text-blue-600 rounded flex items-center justify-center shrink-0 mt-0.5">📍</div>
              <span>123 Nguyễn Văn Cừ, Q.5, TP.HCM</span>
            </div>
-           {/* Thêm một vài thông tin nữa cho đỡ trống trải */}
            <div className="flex items-start gap-3">
              <div className="w-5 h-5 bg-blue-50 text-blue-600 rounded flex items-center justify-center shrink-0 mt-0.5">📞</div>
              <span>1900 123 456</span>
