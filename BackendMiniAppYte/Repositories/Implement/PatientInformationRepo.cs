@@ -1,4 +1,4 @@
-﻿using Backend.Enities;
+﻿using Backend.Entities;
 using Backend.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +14,7 @@ namespace Backend.Repositories.Implement
         }
 
 
-        public async Task<PatientInformation?> GetByIdAsync(int id)
+        public async Task<PatientInformation?> GetByIdAsync(string id)
         {
             // Bao gồm Appointments nếu cần (dùng .Include)
             return await dataContext.PatientInformations
@@ -27,7 +27,7 @@ namespace Backend.Repositories.Implement
 
         }
 
-        public async Task<bool> UpdateAsync(int Id ,PatientInformation patient)
+        public async Task<bool> UpdateAsync(string Id ,PatientInformation patient)
         {
             var affect = await dataContext.PatientInformations
                                                 .Where(x => x.PatientId == Id)
@@ -38,13 +38,13 @@ namespace Backend.Repositories.Implement
             return affect>0;
         }
 
-        public async Task<bool> DeleteAsync(int Id)
+        public async Task<bool> DeleteAsync(string Id)
         {
             var affect = await dataContext.PatientInformations.Where(x => x.PatientId == Id).ExecuteDeleteAsync();
             return affect > 0;
         }
 
-        public async Task<bool> ExistsAsync(int id)
+        public async Task<bool> ExistsAsync(string id)
         {
             return await dataContext.PatientInformations.AnyAsync(e => e.PatientId == id);
         }

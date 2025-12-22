@@ -4,6 +4,7 @@ using Backend.Entities;
 using Backend.Repositories.Interface;
 using Backend.Service.IService;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -35,7 +36,7 @@ namespace Backend.Service.Service
             this.options = options.Value;
         }
 
-        public async Task RegisterUser(UserDto user)
+        public async Task Register_User(UserDto user)
         {
             var existUser = await userRepo.CheckUserIsExist(user.UserName);
             if (existUser == true)
@@ -74,11 +75,11 @@ namespace Backend.Service.Service
             }
 
             // Generate access token
-            var accessToken = await GenerateJwtToken(user);
+            var accessToken = await Generate_JwtToken(user);
             var accessExpiresAt = DateTime.UtcNow.AddMinutes(options.AccessTokenExpirationMinutes);
 
             // Generate refresh token (plaintext to return, hashed to store)
-            var refreshTokenPlain = GenerateRandomToken();
+            var refreshTokenPlain = Generate_RandomToken();
             var refreshTokenHash = ComputeSha256Hash(refreshTokenPlain);
 
             var refreshEntity = new RefreshToken
@@ -87,7 +88,6 @@ namespace Backend.Service.Service
                 TokenHash = refreshTokenHash,
                 ExpiresAt = DateTime.UtcNow.AddDays(options.RefreshTokenExpirationDays),
                 CreatedAt = DateTime.UtcNow,
-                CreatedByIp = null,
                 Revoked = false
             };
 
@@ -97,24 +97,22 @@ namespace Backend.Service.Service
             return new AuthResult
             {
                 AccessToken = accessToken,
-                AccessTokenExpiresAt = accessExpiresAt,
                 RefreshToken = refreshTokenPlain,
-                RefreshTokenExpiresAt = refreshEntity.ExpiresAt
             };
         }
 
-        public async Task<User?> GetByIdAsync(int Id)
+        public async Task<User?> Get_By_Id_Async(int Id)
         {
-            var user = await userRepo.GetByIdAsync(Id);
+            var user = await userRepo.GetUserByIdAsync(Id);
             return user;
         }
 
-        public async Task<string> GenerateJwtToken(User user)
+        private async Task<string> Generate_JwtToken(User user)
         {
-            if (string.IsNullOrEmpty(options.Secret))
+            if (string.IsNullOrEmpty(options.Key))
                 throw new InvalidOperationException("JWT secret is not configured.");
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Secret));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>()
@@ -147,7 +145,7 @@ namespace Backend.Service.Service
 
         }
 
-        private static string GenerateRandomToken(int size = 64)
+        private static string Generate_RandomToken(int size = 64)
         {
             var bytes = RandomNumberGenerator.GetBytes(size);
             return Convert.ToBase64String(bytes);
@@ -161,5 +159,88 @@ namespace Backend.Service.Service
             return Convert.ToBase64String(hash);
         }
 
+        private static void  Validate_Token(RefreshToken token)
+        {
+            if(token == null)
+            {
+                throw new SecurityTokenException("Invalid RT");
+            }
+
+            if(token.Revoked == true)
+            {
+                throw new SecurityTokenException("RT revoked");
+            }
+
+            if(token.ExpiresAt < DateTime.UtcNow)
+            {
+                throw new SecurityTokenException("RT expired");
+            }
+
+            if(token.ReplacedByTokenHash != null)
+            {
+                throw new SecurityTokenException("RT already used");
+            }
+        }
+
+        private async Task Revoke_RefreshToken(int id ,string RT2)
+        {
+            var affect = await refreshTokenRepo.Update_RevokeRT_ByToken(id, RT2);
+            if(affect == false)
+            {
+                throw new ArgumentException("Chua the thu hoi Token");
+            }
+        }
+
+        public async Task<AuthResult> Refresh_RT_And_AT(string refreshToken)
+        {
+            var tokenHash = ComputeSha256Hash(refreshToken);
+            var storedToken = await refreshTokenRepo.GetByHashAsync(tokenHash);
+            if(storedToken == null)
+            {
+                throw new KeyNotFoundException("Not find this RT");
+            }
+
+            Validate_Token(storedToken);
+
+            // Generate new refreshtoken
+            var newToken = Generate_RandomToken();
+            var newTokenHash = ComputeSha256Hash(newToken);
+
+            await Revoke_RefreshToken(storedToken.Id, newTokenHash);
+
+            var newRefreshToken = new RefreshToken
+            {
+                UserId = storedToken.UserId,
+                TokenHash = newTokenHash,
+                ExpiresAt = DateTime.UtcNow.AddDays(options.RefreshTokenExpirationDays),
+                CreatedAt = DateTime.UtcNow,
+            };
+            
+            await refreshTokenRepo.AddAsync(newRefreshToken);
+            await unitOfWork.SaveChanges();
+
+            //Generate new accessToken
+            var user = await userRepo.GetUserByIdAsync(storedToken.UserId);
+            if(user == null)
+            {
+                throw new KeyNotFoundException("Not find this userId");
+            }
+            var accessToken = await Generate_JwtToken(user);
+
+            var authResult = new AuthResult
+            {
+                AccessToken = accessToken,
+                RefreshToken = newToken,
+            };
+
+            return authResult;
+        }
+
+        public async Task Clean_Up_RefreshToken()
+        {
+            await refreshTokenRepo.Delete_RefreshToken();
+        }
+
+        
     }
 }

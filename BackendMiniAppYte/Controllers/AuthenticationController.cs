@@ -1,3 +1,4 @@
+using Backend.DTO.Request;
 using Backend.DTO.Respond;
 using Backend.Service.IService;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,7 @@ namespace Backend.Controllers
 
             try
             {
-                await authenService.RegisterUser(userDto);
+                await authenService.Register_User(userDto);
                 return Ok(new { message = "User registered successfully" });
             }
             catch (ArgumentException ex)
@@ -40,16 +41,16 @@ namespace Backend.Controllers
 
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromQuery] string userName, [FromQuery] string password)
+        public async Task<IActionResult> Login([FromBody]LoginRequest loginRequest)
         {
-            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(loginRequest.UserName) || string.IsNullOrEmpty(loginRequest.Password))
             {
                 return BadRequest(new { error = "Username and password are required" });
             }
 
             try
             {
-                var authResult = await authenService.Login(userName, password);
+                var authResult = await authenService.Login(loginRequest.UserName,loginRequest.Password);
                 return Ok(authResult);
             }
             catch (KeyNotFoundException ex)
@@ -66,11 +67,6 @@ namespace Backend.Controllers
             }
         }
 
-        /// <summary>
-        /// Get user information by ID
-        /// </summary>
-        /// <param name="id">User ID</param>
-        /// <returns>User details</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById([FromRoute] int id)
         {
@@ -81,7 +77,7 @@ namespace Backend.Controllers
 
             try
             {
-                var user = await authenService.GetByIdAsync(id);
+                var user = await authenService.Get_By_Id_Async(id);
                 if (user == null)
                 {
                     return NotFound(new { error = "User not found" });
@@ -94,5 +90,16 @@ namespace Backend.Controllers
                 return StatusCode(500, new { error = "Internal server error", detail = ex.Message });
             }
         }
+
+        [HttpPost]
+        [Route("refreshToken")]
+        public async Task<IActionResult> Refresh_Token([FromQuery] string refreshToken)
+        {
+            var authResult = await authenService.Refresh_RT_And_AT(refreshToken);
+            return Ok(authResult);
+
+        }
+
+
     }
 }

@@ -1,15 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.ComponentModel.DataAnnotations;
 
-namespace Backend.Enities
+namespace Backend.Entities
 {
     public class PatientInformation
     {
         [Key]
-        public int PatientId { get; set; }
+        public string PatientId { get; set; } = null!;
 
-        [StringLength(50)]
-        public string? ZaloId { get; set; }
 
         [Required(ErrorMessage = "Tên là bắt buộc.")]
         [StringLength(100)]
@@ -22,7 +20,7 @@ namespace Backend.Enities
 
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ.")]
         [StringLength(10)]
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = null!;
 
         public string CCCD { get; set; }
 

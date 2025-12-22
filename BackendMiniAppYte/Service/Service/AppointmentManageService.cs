@@ -18,13 +18,23 @@ namespace Backend.Service.Service
         }
 
         //Lấy tất cả cuộc hẹn theo điều kiện
-        public async Task<List<AppointmentDto>> GetAllAppointmentByCondition(string? status, DateTimeOffset? dateCondition, int page)
+        public async Task<List<AppointmentDto>> GetAllAppointmentByCondition(string? status, int? day, int? month, int? year, int page)
         {
             var query = appointmentRepo.GetAllAppointmentAsync();
 
-            if (dateCondition != null)
+            if (year != null)
             {
-                query = query.Where(x => x.AppointmentDate.Date == dateCondition);
+                query = query.Where(x => x.AppointmentDate.Year == year);
+            }
+
+            if (month != null)
+            {
+                query = query.Where(x => x.AppointmentDate.Month == month);
+            }
+
+            if (day != null)
+            {
+                query = query.Where(x => x.AppointmentDate.Day == day);
             }
             if (status != null)
             {

@@ -1,5 +1,4 @@
-﻿using Backend.Enities;
-using Backend.Entities;
+﻿using Backend.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend
@@ -21,6 +20,7 @@ namespace Backend
         public DbSet<UserRole> UserRoles { get; set; }
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -31,18 +31,21 @@ namespace Backend
                         .HasForeignKey(a => a.PatientId)
                         .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<UserRole>()
-                .HasKey(ur => new { ur.UserId, ur.RoleId });
+                modelBuilder.Entity<UserRole>()
+                    .HasKey(ur => new { ur.UserId, ur.RoleId });
 
-            modelBuilder.Entity<UserRole>()
-                .HasOne(ur => ur.User)
-                .WithMany(u => u.UserRoles)
-                .HasForeignKey(ur => ur.UserId);
+                modelBuilder.Entity<UserRole>()
+                    .HasOne(ur => ur.User)
+                    .WithMany(u => u.UserRoles)
+                    .HasForeignKey(ur => ur.UserId)
+                    .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<UserRole>()
-                .HasOne(ur => ur.Role)
-                .WithMany(r => r.UserRoles)
-                .HasForeignKey(ur => ur.RoleId);
+                modelBuilder.Entity<UserRole>()
+                    .HasOne(ur => ur.Role)
+                    .WithMany(r => r.UserRoles)
+                    .HasForeignKey(ur => ur.RoleId);
+
+          
 
         }
     }

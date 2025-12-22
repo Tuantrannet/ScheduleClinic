@@ -1,5 +1,6 @@
-﻿using Backend.Enities;
+﻿using Backend.Entities;
 using Backend.Service.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,15 +11,18 @@ namespace Backend.Controllers
     public class WorkingHourController : ControllerBase
     {
         private readonly IWorkingHourService workingHourService;
+        private readonly ISlotService slotService;
 
-        public WorkingHourController(IWorkingHourService workingHourService)
+        public WorkingHourController(IWorkingHourService workingHourService, ISlotService slotService)
         {
             this.workingHourService = workingHourService;
+            this.slotService = slotService;
         }
 
         // GET: api/WorkingHour/{id}
         [HttpGet]
         [Route("getDetail")]
+
         public async Task<ActionResult> GetByIdAsync([FromQuery]int id)
         {
             var result = await workingHourService.GetByIdAsync(id);
@@ -37,6 +41,7 @@ namespace Backend.Controllers
         // POST: api/WorkingHour
         [HttpPost]
         [Route("add")]
+        //[Authorize(Roles = ("Manager"))]
         public async Task<IActionResult> CreateAsync([FromBody]WorkingHour workingHour)
         {
             await workingHourService.CreateAsync(workingHour);
@@ -46,6 +51,7 @@ namespace Backend.Controllers
         // PUT: api/WorkingHour/{id}
         [HttpPut]
         [Route("update")]
+        [Authorize(Roles = ("Manager"))]
         public async Task<ActionResult> UpdateAsync([FromBody] WorkingHour workingHour)
         {
             var updated = await workingHourService.UpdateAsync(workingHour);
@@ -59,6 +65,14 @@ namespace Backend.Controllers
         {
             await workingHourService.DeleteAsync(id);
             return NoContent();
+        }
+
+        [HttpGet]
+        [Route("getSlots")]
+        public async Task<IActionResult> Get_Slot_From_Day([FromQuery]DateOnly dateCondition)
+        {
+            var slots = await slotService.Get_Slot_From_Day(dateCondition);
+            return Ok(slots);
         }
     }
 }

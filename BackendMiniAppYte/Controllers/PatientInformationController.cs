@@ -1,4 +1,4 @@
-﻿using Backend.Enities;
+﻿using Backend.Entities;
 using Backend.Service.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +21,7 @@ namespace Backend.Controllers
         // POST: api/PatientInformation
         [HttpPost]
         [Route("add")]
+
         public async Task<ActionResult> CreateInformation([FromBody]PatientInformation addInformation)
         {
 
@@ -33,7 +34,7 @@ namespace Backend.Controllers
         // GET: api/PatientInformation/5
         [HttpGet]
         [Route("getDetail")]
-        public async Task<ActionResult> GetInformationById([FromQuery]int id)
+        public async Task<ActionResult> GetInformationById([FromQuery]string id)
         {
             var information = await patientService.GetInformationByIdAsync(id);
             return Ok(information);
@@ -43,7 +44,7 @@ namespace Backend.Controllers
         // PUT: api/PatientInformation/5
         [HttpPut]
         [Route("update")]
-        public async Task<IActionResult> UpdateInformation([FromQuery]int id, [FromBody]PatientInformation upInformation)
+        public async Task<IActionResult> UpdateInformation([FromQuery]string id, [FromBody]PatientInformation upInformation)
         {
             var updatedInformation = await patientService.UpdateAsync(id, upInformation);
             return  Ok(updatedInformation);
@@ -53,7 +54,7 @@ namespace Backend.Controllers
         // DELETE: api/PatientInformation/5
         [HttpDelete]
         [Route("delete")]
-        public async Task<IActionResult> DeleteInformation([FromQuery]int id)
+        public async Task<IActionResult> DeleteInformation([FromQuery]string id)
         {
 
             await patientService.DeleteAsync(id);

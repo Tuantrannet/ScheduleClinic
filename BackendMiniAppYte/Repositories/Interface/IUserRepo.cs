@@ -18,5 +18,7 @@ namespace Backend.Repositories.Interface
 
         Task DeleteAsync(int id);
 
+        Task<User?> GetUserByIdAsync(int id);
+
     }
 }

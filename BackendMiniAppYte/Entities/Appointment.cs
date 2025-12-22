@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Backend.Entities;
+using System.ComponentModel.DataAnnotations;
 
-namespace Backend.Enities
+namespace Backend.Entities
 {
     public class Appointment
     {
@@ -8,14 +9,18 @@ namespace Backend.Enities
         [Key]
         public int AppointmentId { get; set; }
 
-        public int PatientId { get; set; }
+        public string PatientId { get; set; } = null!;
 
-        public DateTimeOffset AppointmentDate { get; set; }
+        public DateOnly AppointmentDate { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
         public string Status { get; set; } = "Pending";
 
         public PatientInformation PatientInformation { get; set; } = null!;
+
+        public TimeOnly Start_Time { get; set; }
+
+        public TimeOnly End_Time { get; set; }
 
     }
 }

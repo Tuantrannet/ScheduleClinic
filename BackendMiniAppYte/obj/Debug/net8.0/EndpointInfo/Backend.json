@@ -89,25 +89,17 @@
         }
       }
     },
-    "/api/Appointment/getAllByCondition": {
+    "/api/Appointment/getAllByPatient": {
       "get": {
         "tags": [
           "Appointment"
         ],
         "parameters": [
           {
-            "name": "status",
+            "name": "patientId",
             "in": "query",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "dateCondition",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
             }
           },
           {
@@ -126,10 +118,63 @@
         }
       }
     },
-    "/api/Appointment/getDetailByAppointmentId": {
+    "/api/AppointmentManage/getAllByCondition": {
       "get": {
         "tags": [
-          "Appointment"
+          "AppointmentManage"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "day",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AppointmentManage/getDetailByAppointmentId": {
+      "get": {
+        "tags": [
+          "AppointmentManage"
         ],
         "parameters": [
           {
@@ -148,14 +193,14 @@
         }
       }
     },
-    "/api/Appointment/getAllByPatient": {
-      "get": {
+    "/api/AppointmentManage/updateStatus": {
+      "put": {
         "tags": [
-          "Appointment"
+          "AppointmentManage"
         ],
         "parameters": [
           {
-            "name": "patientId",
+            "name": "id",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -163,7 +208,313 @@
             }
           },
           {
-            "name": "page",
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Authentication/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Authentication/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Authentication/{id}": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Authentication/refreshToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "parameters": [
+          {
+            "name": "refreshToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/getById": {
+      "get": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/getByUsername": {
+      "get": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/getAll": {
+      "get": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/update": {
+      "put": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/delete": {
+      "delete": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/check-exists/{username}": {
+      "get": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/assignRole": {
+      "post": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignRoleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignRoleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignRoleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ManagerUser/removeRole": {
+      "delete": {
+        "tags": [
+          "ManagerUser"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "roleId",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -204,24 +555,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatientInformation"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatientInformation"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatientInformation"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -236,31 +570,13 @@
             "name": "id",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatientInformation"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatientInformation"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PatientInformation"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -275,8 +591,7 @@
             "name": "id",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -316,8 +631,147 @@
             "name": "id",
             "in": "query",
             "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/WorkingHour/getDetail": {
+      "get": {
+        "tags": [
+          "WorkingHour"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/WorkingHour/getAll": {
+      "get": {
+        "tags": [
+          "WorkingHour"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/WorkingHour/add": {
+      "post": {
+        "tags": [
+          "WorkingHour"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkingHour"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkingHour"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkingHour"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/WorkingHour/update": {
+      "put": {
+        "tags": [
+          "WorkingHour"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkingHour"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkingHour"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkingHour"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/WorkingHour/delete": {
+      "delete": {
+        "tags": [
+          "WorkingHour"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/WorkingHour/getSlots": {
+      "get": {
+        "tags": [
+          "WorkingHour"
+        ],
+        "parameters": [
+          {
+            "name": "dateCondition",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
             }
           }
         ],
@@ -343,45 +797,66 @@
             "format": "int32"
           },
           "patientId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "appointmentDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "status": {
             "minLength": 1,
             "type": "string"
           },
-          "reasonForVisit": {
-            "type": "string",
-            "nullable": true
-          },
-          "reasonForReject": {
-            "type": "string",
-            "nullable": true
-          },
           "patientInformation": {
             "$ref": "#/components/schemas/PatientInformation"
+          },
+          "start_Time": {
+            "type": "string",
+            "format": "time"
+          },
+          "end_Time": {
+            "type": "string",
+            "format": "time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AssignRoleRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "PatientInformation": {
         "required": [
-          "patientName",
-          "phoneNumber"
+          "patientName"
         ],
         "type": "object",
         "properties": {
           "patientId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "zaloId": {
-            "maxLength": 50,
-            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -396,11 +871,20 @@
             "type": "string",
             "nullable": true
           },
+          "birthday": {
+            "type": "string",
+            "nullable": true
+          },
           "phoneNumber": {
             "maxLength": 10,
             "minLength": 0,
             "type": "string",
-            "format": "tel"
+            "format": "tel",
+            "nullable": true
+          },
+          "cccd": {
+            "type": "string",
+            "nullable": true
           },
           "appointments": {
             "type": "array",
@@ -420,24 +904,132 @@
             "format": "int32"
           },
           "patientId": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "appointmentDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "status": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "reasonForVisit": {
+          "roleName": {
             "type": "string",
             "nullable": true
           },
-          "reasonForReject": {
+          "userRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRole"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "required": [
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "passwordHash": {
             "type": "string",
             "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "userRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRole"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRole": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkingHour": {
+        "type": "object",
+        "properties": {
+          "workingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "mor_Start": {
+            "type": "string",
+            "format": "time"
+          },
+          "mor_End": {
+            "type": "string",
+            "format": "time"
+          },
+          "aff_Start": {
+            "type": "string",
+            "format": "time"
+          },
+          "aff_End": {
+            "type": "string",
+            "format": "time"
+          },
+          "duration": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

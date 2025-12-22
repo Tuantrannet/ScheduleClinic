@@ -7,6 +7,10 @@ using Backend;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Backend.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Backend.DTO.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,13 +30,39 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:5185", "https://localhost:7296")
+        policy.WithOrigins("http://localhost:5222", "https://localhost:7296")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
     });
 });
 
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+
+var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+
+        ValidIssuer = jwtSettings.Issuer,
+        ValidAudience = jwtSettings.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
+    };
+});
+builder.Services.AddAuthorization(options =>
+{
+
+});
 
 builder.Services.AddScoped<IAppointmentRepo, AppointmentRepo>();
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
@@ -43,6 +73,7 @@ builder.Services.AddScoped<IWorkingHourRepo, WorkingHourRepo>();
 builder.Services.AddScoped<IWorkingHourService, WorkingHourService>();
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IUserRoleRepo, UserRoleRepo>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthenService, AuthenService>();
 builder.Services.AddScoped<IRoleRepo, RoleRepo>();
 builder.Services.AddScoped<IRoleService, RoleService>();
@@ -51,8 +82,9 @@ builder.Services.AddScoped<IAuthorizationRepo, AuthorizationRepo>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<PasswordHasher<User>>();
 builder.Services.AddScoped<IRefreshTokenRepo, RefreshTokenRepo>();
+builder.Services.AddScoped<ISlotService, SlotService>();
 
-
+//builder.Services.AddHostedService<RefreshTokenCleanUpService>();
 
 
 builder.Services.AddAutoMapper(typeof(AutoMappingProfile));
@@ -68,7 +100,7 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<ExceptionHandling>();
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();    
 app.UseAuthorization();
 
 app.MapControllers();

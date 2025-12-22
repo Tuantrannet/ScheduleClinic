@@ -1,5 +1,5 @@
 ﻿using Backend.DTO.Request;
-using Backend.Enities;
+using Backend.Entities;
 using Backend.Service.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +43,7 @@ namespace Backend.Controllers
 
         [HttpGet]
         [Route("getAllByPatient")]
-        public async Task<IActionResult> GetAllAppointmentsByPatientId([FromQuery]int patientId, [FromQuery] int page)
+        public async Task<IActionResult> GetAllAppointmentsByPatientId([FromQuery]string patientId, [FromQuery] int page)
         {
             var  appointments = await appointmentService.GetListAppointmentByPatientId(patientId, page);
             return Ok(appointments);

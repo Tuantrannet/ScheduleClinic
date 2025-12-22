@@ -1,4 +1,5 @@
-﻿using Backend.Enities;
+﻿using Backend.Entities;
+using Backend.Entities;
 
 namespace Backend.Repositories.Interface
 {
@@ -10,6 +11,9 @@ namespace Backend.Repositories.Interface
         Task<bool> DeleteAsync(int Id);
 
         IQueryable<WorkingHour> GetAllWorkingHour();
+
+        Task<WorkingHour?> Get_First_WorkingHour_Async();
+
 
     }
 }

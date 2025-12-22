@@ -1,4 +1,4 @@
-﻿using Backend.Enities;
+﻿using Backend.Entities;
 
 namespace Backend.Repositories.Interface
 {
@@ -13,12 +13,12 @@ namespace Backend.Repositories.Interface
 
         IQueryable<Appointment> GetAllAppointmentAsync();
 
-        
 
-        Task<bool> CheckExitInDayAsync(int patient, DateTimeOffset registerDate);
+        Task<bool> CheckExitInDayAsync(string patientId, DateOnly registerDate);
 
         Task<bool> UpdateStatusByIdAsync(int Id, string status);
 
+        Task<List<Appointment>> Get_Appointment_By_Date(DateOnly dateCondition, TimeOnly startTime, TimeOnly endTime);
 
     }
 }

@@ -1,6 +1,8 @@
-﻿using Backend.Enities;
+﻿using Backend.Entities;
+using Backend.Entities;
 using Backend.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using System;
 using System.Threading.Tasks;
 
@@ -19,7 +21,7 @@ namespace Backend.Repositories.Implement
         public async Task<WorkingHour?> GetByIdAsync(int id)
         {
             // Không cần .Include vì WorkingHour không có quan hệ phức tạp
-            var workingHour =  await dataContext.WorkingHours.FirstOrDefaultAsync(w => w.WorkingId == id);
+            var workingHour = await dataContext.WorkingHours.FirstOrDefaultAsync(w => w.WorkingId == id);
             return workingHour;
         }
 
@@ -58,7 +60,14 @@ namespace Backend.Repositories.Implement
 
         public IQueryable<WorkingHour> GetAllWorkingHour()
         {
-            return dataContext.WorkingHours.AsQueryable();
+            return dataContext.WorkingHours.AsQueryable().AsNoTracking();
+        }
+
+        public async Task<WorkingHour?> Get_First_WorkingHour_Async()
+        {
+            var workingHour = await dataContext.WorkingHours.OrderByDescending(x => x.WorkingId)
+                                                .FirstOrDefaultAsync();
+            return workingHour;
         }
 
 

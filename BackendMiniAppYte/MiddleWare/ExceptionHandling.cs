@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Net;
 
 namespace Backend.MiddleWare
@@ -40,6 +41,7 @@ namespace Backend.MiddleWare
                 InvalidOperationException => (int)HttpStatusCode.Conflict,
                 DbUpdateException => (int)HttpStatusCode.InternalServerError,
                 UnauthorizedAccessException => (int)HttpStatusCode.Unauthorized,
+                SecurityTokenException => (int)HttpStatusCode.Unauthorized,
                 _ => (int)HttpStatusCode.InternalServerError
             };
 

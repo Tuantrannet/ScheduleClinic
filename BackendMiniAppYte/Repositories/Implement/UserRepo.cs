@@ -21,6 +21,12 @@ namespace Backend.Repositories.Implement
                 .FirstOrDefaultAsync(u => u.UserId == id);
         }
 
+        public async Task<User?> GetUserByIdAsync(int id)
+        {
+            return await dataContext.Users
+                .FirstOrDefaultAsync(u => u.UserId == id);
+        }
+
         public async Task<User?> GetByUserNameAsync(string username)
         {
             return await  dataContext.Users

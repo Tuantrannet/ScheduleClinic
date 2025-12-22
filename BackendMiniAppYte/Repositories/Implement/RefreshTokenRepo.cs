@@ -28,20 +28,28 @@ namespace Backend.Repositories.Implement
             return await dataContext.RefreshTokens.Where(x => x.UserId == userId).ToListAsync();
         }
 
-        public async Task UpdateAsync(RefreshToken token)
+        //RT1,2 : refreshToken 1,2
+        public async Task<bool> Update_RevokeRT_ByToken(int id, string RT2)
         {
-            await dataContext.RefreshTokens
-                .Where(x => x.Id == token.Id)
-                .ExecuteUpdateAsync(s => s
-                    .SetProperty(r => r.UserId, token.UserId)
-                    .SetProperty(r => r.TokenHash, token.TokenHash)
-                    .SetProperty(r => r.ExpiresAt, token.ExpiresAt)
-                    .SetProperty(r => r.CreatedAt, token.CreatedAt)
-                    .SetProperty(r => r.CreatedByIp, token.CreatedByIp)
-                    .SetProperty(r => r.Revoked, token.Revoked)
-                    .SetProperty(r => r.RevokedAt, token.RevokedAt)
-                    .SetProperty(r => r.ReplacedByTokenHash, token.ReplacedByTokenHash)
-                );
+            var affect = await dataContext.RefreshTokens
+                                .Where(x => x.Id == id)
+                                .ExecuteUpdateAsync( s => s
+                                    .SetProperty(r => r.Revoked ,true)
+                                    .SetProperty(r=>r.RevokedAt,DateTime.UtcNow)
+                                    .SetProperty(r=> r.ReplacedByTokenHash , RT2)
+                                );
+            return affect>0 ;
+        }
+
+        public async Task Delete_RefreshToken()
+        {
+            var gracePeriod = TimeSpan.FromDays(15);
+            var cutOffTime = DateTime.UtcNow.Subtract(gracePeriod);
+            var deleteToken = dataContext.RefreshTokens.
+                    Where(x => x.ExpiresAt < DateTime.UtcNow
+                    || (x.Revoked == true && x.RevokedAt.HasValue && x.RevokedAt.Value < cutOffTime));
+
+            await deleteToken.ExecuteDeleteAsync();
         }
     }
 }

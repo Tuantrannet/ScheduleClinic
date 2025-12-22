@@ -7,6 +7,11 @@ namespace Backend.Repositories.Interface
         Task AddAsync(RefreshToken token);
         Task<RefreshToken?> GetByHashAsync(string tokenHash);
         Task<IEnumerable<RefreshToken>> GetByUserIdAsync(int userId);
-        Task UpdateAsync(RefreshToken token);
+        Task<bool> Update_RevokeRT_ByToken(int id, string RT2);
+        Task Delete_RefreshToken();
+
+
+
+
     }
 }

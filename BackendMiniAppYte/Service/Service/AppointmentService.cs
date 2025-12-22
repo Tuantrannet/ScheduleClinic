@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Backend.DTO.Request;
 using Backend.DTO.Respond;
-using Backend.Enities;
+using Backend.Entities;
 using Backend.Repositories.Interface;
 using Backend.Service.IService;
 using Microsoft.EntityFrameworkCore;
@@ -76,8 +76,7 @@ namespace Backend.Service.Service
             }
             
         }
-
-        
+     
 
         //Lấy chi tiết cuộc hẹn bằng AppointmentId 
         public async Task<AppointmentDto?> GetAppointmentByAppointmnetId(int Id)
@@ -94,12 +93,12 @@ namespace Backend.Service.Service
         }
 
         //Lấy List cuộc hẹn của Patient
-        public async Task<List<AppointmentDto>> GetListAppointmentByPatientId(int patientId, int page)
+        public async Task<List<AppointmentDto>> GetListAppointmentByPatientId(string patientId, int page)
         {
             int skip = (page - 1) * 5;
             var query = appointmentRepository.GetAllAppointmentAsync();
 
-            query = query.Where(x => x.PatientId == patientId).OrderByDescending(x => x.AppointmentDate.Date);
+            query = query.Where(x => x.PatientId == patientId).OrderByDescending(x => x.AppointmentDate);
 
             var appointmentList = await query.Skip(skip).Take(5).ToListAsync();
 

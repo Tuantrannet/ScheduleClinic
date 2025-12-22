@@ -1,4 +1,4 @@
-﻿using Backend.Enities;
+﻿using Backend.Entities;
 
 namespace Backend.Service.IService
 {

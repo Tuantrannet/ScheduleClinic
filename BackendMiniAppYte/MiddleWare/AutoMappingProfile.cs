@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Backend.DTO.Respond;
-using Backend.Enities;
+using Backend.Entities;
 
 namespace Backend.MiddleWare
 {

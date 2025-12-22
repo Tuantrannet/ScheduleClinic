@@ -3,39 +3,252 @@
   "WorkspaceRootPath": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Migrations\\20251203072333_FirstDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251203072333_FirstDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\controllers\\workinghourcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:controllers\\workinghourcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\datacontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:datacontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\entities\\patientinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:entities\\patientinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\respond\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\respond\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\appointmentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\appointmentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ASP NetCore\\BackendMiniAppTong\\BackendMiniAppYte\\WebApplication1\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\backendminiappyte.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:backendminiappyte.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\entities\\workinghour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:entities\\workinghour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\workinghourrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\workinghourrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\middleware\\exceptionhandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:middleware\\exceptionhandling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\refreshtokenrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\refreshtokenrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\irefreshtokenrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\irefreshtokenrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\patientinformationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\patientinformationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\slotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\slotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\iappointmentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\iappointmentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\controllers\\appointmentmanagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:controllers\\appointmentmanagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\respond\\slotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\respond\\slotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\iworkinghourrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\iworkinghourrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\appointmentmanageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\appointmentmanageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\islotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\islotservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\controllers\\patientinformationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:controllers\\patientinformationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\patientinformationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\patientinformationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\ipatientinformationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\ipatientinformationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\ipatientinformationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\ipatientinformationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\workinghourservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\workinghourservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\respond\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\respond\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\authorizationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\authorizationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\rolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\rolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\implement\\userrolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\implement\\userrolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\respond\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\respond\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\refreshtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\refreshtokencleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\respond\\authresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\respond\\authresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\authorizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\authorizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\controllers\\managerusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:controllers\\managerusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\request\\assignrolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\request\\assignrolerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\request\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\request\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\iappointmentmanageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\iappointmentmanageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\iuserrolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\iuserrolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\irolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\irolerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\dto\\model\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:dto\\model\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IRefreshToken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Repositories\\Interface\\IRefreshToken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\repositories\\interface\\iauthorizationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:repositories\\interface\\iauthorizationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\service\\iservice\\iauthorizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:service\\iservice\\iauthorizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|e:\\asp netcore\\backendminiappt1\\backendminiappyte\\migrations\\20251220042648_intialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE69BF-36CD-472A-BA2C-F5A7814DAA4C}|Backend.csproj|solutionrelative:migrations\\20251220042648_intialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,28 +258,397 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20251203072333_FirstDb.cs",
-              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Migrations\\20251203072333_FirstDb.cs",
-              "RelativeDocumentMoniker": "Migrations\\20251203072333_FirstDb.cs",
-              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Migrations\\20251203072333_FirstDb.cs",
-              "RelativeToolTip": "Migrations\\20251203072333_FirstDb.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "DataContextFactory.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DataContextFactory.cs",
+              "RelativeDocumentMoniker": "DataContextFactory.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DataContextFactory.cs",
+              "RelativeToolTip": "DataContextFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T07:23:33.585Z",
+              "WhenOpened": "2025-12-20T04:27:53.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Entities\\User.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\User.cs",
+              "RelativeToolTip": "Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T08:36:22.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WorkingHour.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\WorkingHour.cs",
+              "RelativeDocumentMoniker": "Entities\\WorkingHour.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\WorkingHour.cs",
+              "RelativeToolTip": "Entities\\WorkingHour.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T04:03:00.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\Appointment.cs",
+              "RelativeDocumentMoniker": "Entities\\Appointment.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\Appointment.cs",
+              "RelativeToolTip": "Entities\\Appointment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T08:44:30.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PatientInformation.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\PatientInformation.cs",
+              "RelativeDocumentMoniker": "Entities\\PatientInformation.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\PatientInformation.cs",
+              "RelativeToolTip": "Entities\\PatientInformation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T03:56:58.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "Entities\\RefreshToken.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\RefreshToken.cs",
+              "RelativeToolTip": "Entities\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T06:35:14.275Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DataContext.cs",
+              "RelativeDocumentMoniker": "DataContext.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DataContext.cs",
+              "RelativeToolTip": "DataContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T09:18:12.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorkingHourController.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\WorkingHourController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WorkingHourController.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\WorkingHourController.cs*",
+              "RelativeToolTip": "Controllers\\WorkingHourController.cs*",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAACsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T04:06:22.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "20251220042648_IntialCreate.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Migrations\\20251220042648_IntialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251220042648_IntialCreate.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Migrations\\20251220042648_IntialCreate.cs",
+              "RelativeToolTip": "Migrations\\20251220042648_IntialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T04:26:49.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppointmentRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\AppointmentRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\AppointmentRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\AppointmentRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\AppointmentRepo.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAIwBAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:52:01.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Role.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\Role.cs",
+              "RelativeDocumentMoniker": "Entities\\Role.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\Role.cs",
+              "RelativeToolTip": "Entities\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T09:10:31.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\UserRole.cs",
+              "RelativeDocumentMoniker": "Entities\\UserRole.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Entities\\UserRole.cs",
+              "RelativeToolTip": "Entities\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T09:10:33.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AppointmentController.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:00:39.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WorkingHourRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\WorkingHourRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\WorkingHourRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\WorkingHourRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\WorkingHourRepo.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAAAEEAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:54:02.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RefreshTokenRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\RefreshTokenRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\RefreshTokenRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\RefreshTokenRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\RefreshTokenRepo.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAC4AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T06:33:50.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ExceptionHandling.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\MiddleWare\\ExceptionHandling.cs",
+              "RelativeDocumentMoniker": "MiddleWare\\ExceptionHandling.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\MiddleWare\\ExceptionHandling.cs",
+              "RelativeToolTip": "MiddleWare\\ExceptionHandling.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAC8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:08:45.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IRefreshTokenRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IRefreshTokenRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IRefreshTokenRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IRefreshTokenRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IRefreshTokenRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T03:57:38.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PatientInformationRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\PatientInformationRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\PatientInformationRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\PatientInformationRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\PatientInformationRepo.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAACMAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:53:33.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFYAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T04:02:31.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SlotService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\SlotService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\SlotService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\SlotService.cs",
+              "RelativeToolTip": "Service\\Service\\SlotService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:16:21.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AppointmentManageController.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AppointmentManageController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AppointmentManageController.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AppointmentManageController.cs",
+              "RelativeToolTip": "Controllers\\AppointmentManageController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T04:04:32.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IWorkingHourRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IWorkingHourRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IWorkingHourRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IWorkingHourRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IWorkingHourRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswA4AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:53:26.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SlotDto.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Respond\\SlotDto.cs",
+              "RelativeDocumentMoniker": "DTO\\Respond\\SlotDto.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Respond\\SlotDto.cs",
+              "RelativeToolTip": "DTO\\Respond\\SlotDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T17:04:37.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IAppointmentRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IAppointmentRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IAppointmentRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IAppointmentRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IAppointmentRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:52:12.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AppointmentManageService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\AppointmentManageService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\AppointmentManageService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\AppointmentManageService.cs",
+              "RelativeToolTip": "Service\\Service\\AppointmentManageService.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAAEsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T06:32:06.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IAppointmentService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAppointmentService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IAppointmentService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAppointmentService.cs",
+              "RelativeToolTip": "Service\\IService\\IAppointmentService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T09:50:30.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ISlotService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\ISlotService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\ISlotService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\ISlotService.cs",
+              "RelativeToolTip": "Service\\IService\\ISlotService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:16:51.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PatientInformationController.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\PatientInformationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PatientInformationController.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\PatientInformationController.cs",
+              "RelativeToolTip": "Controllers\\PatientInformationController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAMwD0AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T07:00:53.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IPatientInformationService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IPatientInformationService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IPatientInformationService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IPatientInformationService.cs",
+              "RelativeToolTip": "Service\\IService\\IPatientInformationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T09:49:36.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IPatientInformationRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IPatientInformationRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IPatientInformationRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IPatientInformationRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IPatientInformationRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:52:50.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PatientInformationService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\PatientInformationService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\PatientInformationService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\PatientInformationService.cs",
+              "RelativeToolTip": "Service\\Service\\PatientInformationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T01:00:43.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "WorkingHourService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\WorkingHourService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\WorkingHourService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\WorkingHourService.cs",
+              "RelativeToolTip": "Service\\Service\\WorkingHourService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAewDwAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T01:09:06.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "AppointmentDto.cs",
               "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Respond\\AppointmentDto.cs",
               "RelativeDocumentMoniker": "DTO\\Respond\\AppointmentDto.cs",
@@ -74,94 +656,354 @@
               "RelativeToolTip": "DTO\\Respond\\AppointmentDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T07:17:27.882Z"
+              "WhenOpened": "2025-12-17T09:33:43.412Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AppointmentController.cs",
-              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 32,
+              "Title": "AuthorizationRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\AuthorizationRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\AuthorizationRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\AuthorizationRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\AuthorizationRepo.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T07:15:17.061Z"
+              "WhenOpened": "2025-12-09T01:19:55.187Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 33,
+              "Title": "RoleRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\RoleRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\RoleRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\RoleRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\RoleRepo.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAD0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T08:40:59.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\UnitOfWork.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\UnitOfWork.cs",
+              "RelativeToolTip": "Repositories\\Implement\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:49:15.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\UserRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\UserRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\UserRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\UserRepo.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAABcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:53:47.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "UserRoleRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\UserRoleRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implement\\UserRoleRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Implement\\UserRoleRepo.cs",
+              "RelativeToolTip": "Repositories\\Implement\\UserRoleRepo.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T08:24:48.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Respond\\UserDto.cs",
+              "RelativeDocumentMoniker": "DTO\\Respond\\UserDto.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Respond\\UserDto.cs",
+              "RelativeToolTip": "DTO\\Respond\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T03:51:26.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticationController.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T08:47:47.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "IAuthenService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAuthenService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IAuthenService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAuthenService.cs",
+              "RelativeToolTip": "Service\\IService\\IAuthenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T07:47:15.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "AuthenService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\AuthenService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\AuthenService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\AuthenService.cs",
+              "RelativeToolTip": "Service\\Service\\AuthenService.cs",
+              "ViewState": "AgIAANwAAAAAAAAAAAAAAPMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T01:05:32.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "RefreshTokenCleanUpService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\RefreshTokenCleanUpService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\RefreshTokenCleanUpService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\RefreshTokenCleanUpService.cs",
+              "RelativeToolTip": "Service\\Service\\RefreshTokenCleanUpService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T08:53:04.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "AuthResult.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Respond\\AuthResult.cs",
+              "RelativeDocumentMoniker": "DTO\\Respond\\AuthResult.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Respond\\AuthResult.cs",
+              "RelativeToolTip": "DTO\\Respond\\AuthResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T02:49:55.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IUserRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IUserRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IUserRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IUserRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IUserRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:53:16.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "AuthorizationService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\AuthorizationService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\AuthorizationService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\AuthorizationService.cs",
+              "RelativeToolTip": "Service\\Service\\AuthorizationService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T06:32:12.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-03T07:14:24.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T00:34:51.642Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 46,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\UserService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\Service\\UserService.cs",
+              "RelativeToolTip": "Service\\Service\\UserService.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T07:12:23.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T04:09:26.354Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DataContext.cs",
-              "RelativeDocumentMoniker": "DataContext.cs",
-              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DataContext.cs",
-              "RelativeToolTip": "DataContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 47,
+              "Title": "ManagerUserController.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\ManagerUserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ManagerUserController.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\ManagerUserController.cs",
+              "RelativeToolTip": "Controllers\\ManagerUserController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T07:10:15.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T04:07:46.46Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BackendMiniAppYte.http",
-              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\BackendMiniAppYte.http",
-              "RelativeDocumentMoniker": "BackendMiniAppYte.http",
-              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\BackendMiniAppYte.http",
-              "RelativeToolTip": "BackendMiniAppYte.http",
+              "DocumentIndex": 48,
+              "Title": "AssignRoleRequest.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Request\\AssignRoleRequest.cs",
+              "RelativeDocumentMoniker": "DTO\\Request\\AssignRoleRequest.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Request\\AssignRoleRequest.cs",
+              "RelativeToolTip": "DTO\\Request\\AssignRoleRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T07:44:51.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "IRoleService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IRoleService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IRoleService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IRoleService.cs",
+              "RelativeToolTip": "Service\\IService\\IRoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T04:01:43.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Request\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "DTO\\Request\\LoginRequest.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Request\\LoginRequest.cs",
+              "RelativeToolTip": "DTO\\Request\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T07:12:50.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "IAppointmentManageService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAppointmentManageService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IAppointmentManageService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAppointmentManageService.cs",
+              "RelativeToolTip": "Service\\IService\\IAppointmentManageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T06:32:03.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "IUserRoleRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IUserRoleRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IUserRoleRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IUserRoleRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IUserRoleRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-12-03T07:15:25.54Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T06:32:37.658Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PatientInformationController.cs",
-              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\PatientInformationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PatientInformationController.cs",
-              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Controllers\\PatientInformationController.cs",
-              "RelativeToolTip": "Controllers\\PatientInformationController.cs",
+              "DocumentIndex": 53,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IUnitOfWork.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IUnitOfWork.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:49:04.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "IRoleRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IRoleRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IRoleRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IRoleRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IRoleRepo.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T00:53:08.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "JwtSettings.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Model\\JwtSettings.cs",
+              "RelativeDocumentMoniker": "DTO\\Model\\JwtSettings.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\DTO\\Model\\JwtSettings.cs",
+              "RelativeToolTip": "DTO\\Model\\JwtSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T02:47:33.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T07:15:19.013Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-12T01:46:05.699Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppTong\\BackendMiniAppYte\\WebApplication1\\Program.cs",
-              "RelativeDocumentMoniker": "..\\..\\BackendMiniAppTong\\BackendMiniAppYte\\WebApplication1\\Program.cs",
-              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppTong\\BackendMiniAppYte\\WebApplication1\\Program.cs",
-              "RelativeToolTip": "..\\..\\BackendMiniAppTong\\BackendMiniAppYte\\WebApplication1\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 57,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IUserService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IUserService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IUserService.cs",
+              "RelativeToolTip": "Service\\IService\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T07:12:45.601Z"
+              "WhenOpened": "2025-12-10T04:08:43.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "IAuthorizationService.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAuthorizationService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IAuthorizationService.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Service\\IService\\IAuthorizationService.cs",
+              "RelativeToolTip": "Service\\IService\\IAuthorizationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T08:00:49.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "IRefreshToken.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IRefreshToken.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IRefreshToken.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IRefreshToken.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IRefreshToken.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T08:03:01.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "IAuthorizationRepo.cs",
+              "DocumentMoniker": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IAuthorizationRepo.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IAuthorizationRepo.cs",
+              "ToolTip": "E:\\ASP NetCore\\BackendMiniAppT1\\BackendMiniAppYte\\Repositories\\Interface\\IAuthorizationRepo.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IAuthorizationRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T01:18:59.885Z"
             }
           ]
         }

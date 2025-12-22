@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Backend.Enities
+namespace Backend.Entities
 {
     public class WorkingHour
     {

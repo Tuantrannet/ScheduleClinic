@@ -22,7 +22,7 @@ namespace Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Backend.Enities.Appointment", b =>
+            modelBuilder.Entity("Backend.Entities.Appointment", b =>
                 {
                     b.Property<int>("AppointmentId")
                         .ValueGeneratedOnAdd()
@@ -30,19 +30,18 @@ namespace Backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppointmentId"));
 
-                    b.Property<DateTimeOffset>("AppointmentDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateOnly>("AppointmentDate")
+                        .HasColumnType("date");
 
-                    b.Property<int>("PatientId")
-                        .HasColumnType("int");
+                    b.Property<TimeOnly>("End_Time")
+                        .HasColumnType("time");
 
-                    b.Property<string>("ReasonForReject")
+                    b.Property<string>("PatientId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ReasonForVisit")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<TimeOnly>("Start_Time")
+                        .HasColumnType("time");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -55,13 +54,17 @@ namespace Backend.Migrations
                     b.ToTable("Appointments");
                 });
 
-            modelBuilder.Entity("Backend.Enities.PatientInformation", b =>
+            modelBuilder.Entity("Backend.Entities.PatientInformation", b =>
                 {
-                    b.Property<int>("PatientId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("PatientId")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PatientId"));
+                    b.Property<string>("Birthday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CCCD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
                         .HasMaxLength(10)
@@ -77,18 +80,133 @@ namespace Backend.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("ZaloId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.HasKey("PatientId");
 
                     b.ToTable("PatientInformations");
                 });
 
-            modelBuilder.Entity("Backend.Enities.Appointment", b =>
+            modelBuilder.Entity("Backend.Entities.RefreshToken", b =>
                 {
-                    b.HasOne("Backend.Enities.PatientInformation", "PatientInformation")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReplacedByTokenHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Revoked")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RevokedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TokenHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RefreshTokens");
+                });
+
+            modelBuilder.Entity("Backend.Entities.Role", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("Backend.Entities.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Backend.Entities.UserRole", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles");
+                });
+
+            modelBuilder.Entity("Backend.Entities.WorkingHour", b =>
+                {
+                    b.Property<int>("WorkingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkingId"));
+
+                    b.Property<TimeOnly>("Aff_End")
+                        .HasColumnType("time");
+
+                    b.Property<TimeOnly>("Aff_Start")
+                        .HasColumnType("time");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<TimeOnly>("Mor_End")
+                        .HasColumnType("time");
+
+                    b.Property<TimeOnly>("Mor_Start")
+                        .HasColumnType("time");
+
+                    b.HasKey("WorkingId");
+
+                    b.ToTable("WorkingHours");
+                });
+
+            modelBuilder.Entity("Backend.Entities.Appointment", b =>
+                {
+                    b.HasOne("Backend.Entities.PatientInformation", "PatientInformation")
                         .WithMany("Appointments")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -97,9 +215,38 @@ namespace Backend.Migrations
                     b.Navigation("PatientInformation");
                 });
 
-            modelBuilder.Entity("Backend.Enities.PatientInformation", b =>
+            modelBuilder.Entity("Backend.Entities.UserRole", b =>
+                {
+                    b.HasOne("Backend.Entities.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Backend.Entities.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Backend.Entities.PatientInformation", b =>
                 {
                     b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("Backend.Entities.Role", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("Backend.Entities.User", b =>
+                {
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }
