@@ -18,11 +18,6 @@ export const useBookingSystem = () => {
     setBookings(data);
   }, []);
 
-  // Hàm lưu xuống LocalStorage
-  const saveToStorage = (data: BookingData[]) => {
-    setBookings(data);
-    localStorage.setItem('bookings', JSON.stringify(data));
-  };
 
   // Thêm lịch hẹn mới
   const addBooking = useCallback((booking: { fullName: string; date: string; time: string }) => {

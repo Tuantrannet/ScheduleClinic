@@ -123,7 +123,7 @@ const ClinicInfoManager: React.FC = () => {
         
         {/* Tab Account (Inactive) -> Link tới trang kia */}
         <button 
-          onClick={() => navigate('/account-manager')}
+          onClick={() => navigate('/admin')}
           className="flex flex-col items-center gap-1 transition-colors text-slate-400 hover:text-slate-600"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">

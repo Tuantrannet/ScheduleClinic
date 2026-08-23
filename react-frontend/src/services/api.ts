@@ -1,6 +1,4 @@
-// src/services/api.ts
-
-const BASE_URL = 'https://localhost:7296/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://localhost:7296/api';
 
 interface ApiConfig {
   headers?: Record<string, string>;
@@ -16,12 +14,13 @@ interface TokenResponse {
 function handleLogout() {
   localStorage.removeItem('accessToken');
   localStorage.removeItem('refreshToken');
+  // Có thể dispatch event hoặc chuyển hướng trang tại đây nếu cần
   console.log('Đã đăng xuất do phiên hết hạn. Vui lòng đăng nhập lại.');
 }
 
 // Hàm request chung xử lý logic fetch, headers, parse JSON và Refresh Token
 async function request<T>(endpoint: string, method: string, body?: any, config?: ApiConfig): Promise<T> {
-  
+
   let headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...config?.headers,
@@ -35,8 +34,9 @@ async function request<T>(endpoint: string, method: string, body?: any, config?:
   });
 
   // 2. Kiểm tra nếu bị lỗi 401 (Unauthorized)
-  // Lưu ý: Không chặn 401 của chính API refresh để tránh lặp vô hạn
-  if (response.status === 401 && endpoint !== '/Auth/refresh') {
+  // ĐIỂM SỬA ĐỔI: Thêm điều kiện && endpoint !== '/Auth/login'
+  // Lý do: Khi login sai pass, server trả 401, ta không nên gọi refresh token làm gì.
+  if (response.status === 401 && endpoint !== '/Auth/refresh' && endpoint !== '/Auth/login') {
     const currentRefreshToken = localStorage.getItem('refreshToken');
     const currentAccessToken = localStorage.getItem('accessToken');
 
@@ -51,7 +51,7 @@ async function request<T>(endpoint: string, method: string, body?: any, config?:
           headers: {
             'Content-Type': 'application/json',
             ...(currentAccessToken && {
-              Authorization: `Bearer ${currentAccessToken}`, // ✅ gửi access token cũ (expired)
+              Authorization: `Bearer ${currentAccessToken}`, // Gửi access token cũ nếu backend yêu cầu
             }),
           },
           body: JSON.stringify({
@@ -67,8 +67,8 @@ async function request<T>(endpoint: string, method: string, body?: any, config?:
             console.error("Lỗi: Server không trả về access_token", data);
             handleLogout();
             throw new Error('Refresh failed: No access token');
-         }
-          
+          }
+
           // Lưu lại vào LocalStorage
           localStorage.setItem('accessToken', data.access_token);
           localStorage.setItem('refreshToken', data.refresh_token);
@@ -109,6 +109,7 @@ async function request<T>(endpoint: string, method: string, body?: any, config?:
   // --- Xử lý các lỗi khác như cũ ---
   if (!response.ok) {
     const errorText = await response.text();
+    // Trả về lỗi để UI (VD: trang Login) bắt được và hiển thị thông báo
     throw new Error(errorText || `HTTP Error: ${response.status}`);
   }
 
@@ -130,3 +131,4 @@ export const api = {
   delete: <T>(endpoint: string, config?: ApiConfig) => request<T>(endpoint, 'DELETE', undefined, config),
   patch: <T>(endpoint: string, body: any, config?: ApiConfig) => request<T>(endpoint, 'PATCH', body, config),
 };
+  
