@@ -93,7 +93,7 @@ const Booking: React.FC = () => {
         await connectionRef.current.stop();
       }
 
-      const hubUrl = import.meta.env.VITE_HUB_URL || "https://localhost:7296/bookingHub";
+      const hubUrl = import.meta.env.VITE_HUB_URL || "/bookingHub";
       const newConnection = new signalR.HubConnectionBuilder()
         .withUrl(hubUrl)
         .withAutomaticReconnect()
