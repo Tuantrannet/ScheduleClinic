@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://localhost:7296/api';
+const BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 interface ApiConfig {
   headers?: Record<string, string>;
