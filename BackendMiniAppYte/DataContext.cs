@@ -18,9 +18,9 @@ namespace Backend
 
         public DbSet<Role> Roles { get; set; }
 
-        public DbSet<UserRole> UserRoles { get; set; }
-
+        public DbSet<Status> Statuses { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -31,22 +31,40 @@ namespace Backend
                         .HasForeignKey(a => a.PatientId)
                         .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<UserRole>()
-                .HasKey(ur => new { ur.UserId, ur.RoleId });
-
-            modelBuilder.Entity<UserRole>()
-                .HasOne(ur => ur.User)
-                .WithMany(u => u.UserRoles)
-                .HasForeignKey(ur => ur.UserId);
-
-            modelBuilder.Entity<UserRole>()
-                .HasOne(ur => ur.Role)
-                .WithMany(r => r.UserRoles)
-                .HasForeignKey(ur => ur.RoleId);
+            modelBuilder.Entity<User>()
+                        .HasOne(u => u.Role)
+                        .WithMany(r=> r.Users)
+                        .HasForeignKey(u => u.RoleId)
+                        .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<RefreshToken>()
                 .HasIndex(r => r.Token)
                 .IsUnique();
+
+            modelBuilder.Entity<Role>()
+                .HasData(
+                    new Role { RoleId = 1, RoleName = "Admin" },
+                    new Role { RoleId = 2, RoleName = "Manager" },
+                    new Role { RoleId = 3, RoleName = "Patient" }
+                );
+
+            modelBuilder.Entity<Appointment>()
+            .HasOne(a => a.Status)
+            .WithMany(s => s.Appointments)
+            .HasForeignKey(a => a.StatusId);
+
+            modelBuilder.Entity<Status>()
+                .HasData(
+                    new Status { Id = 1, Name = "Pending" },
+                    new Status { Id = 2, Name = "Confirmed" },
+                    new Status { Id = 3, Name = "SelfCancel" },
+                    new Status { Id = 4, Name = "PendingCancel" },
+                    new Status { Id = 5, Name = "ConfirmedCancel" },
+                    new Status { Id = 6, Name = "Wait" }
+                );
+
+
+
         }
     }
 

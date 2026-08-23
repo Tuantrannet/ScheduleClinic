@@ -15,17 +15,15 @@ namespace Backend.Repositories.Implement
 
         public async Task<User?> GetByIdAsync(int id)
         {
-            return await  dataContext.Users
-                .Include(u => u.UserRoles)
-                .ThenInclude(ur => ur.Role)
+            return await dataContext.Users
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.UserId == id);
         }
 
         public async Task<User?> GetByUserNameAsync(string username)
         {
-            return await  dataContext.Users
-                .Include(u => u.UserRoles)
-                .ThenInclude(ur => ur.Role)
+            return await dataContext.Users
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.UserName == username);
         }
 
@@ -37,7 +35,7 @@ namespace Backend.Repositories.Implement
 
         public IQueryable<User> GetAllAsync()
         {
-            return dataContext.Users.AsQueryable().AsNoTracking();
+            return dataContext.Users.Include(x=> x.Role).AsQueryable().AsNoTracking();
         }
 
         public async Task AddAsync(User user)
@@ -57,10 +55,10 @@ namespace Backend.Repositories.Implement
             return affected > 0;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            var user = await  dataContext.Users.Where(x=> x.UserId == id).ExecuteDeleteAsync();
-
+            var affected = await  dataContext.Users.Where(x=> x.UserId == id).ExecuteDeleteAsync();
+            return affected > 0;
         }
 
     }

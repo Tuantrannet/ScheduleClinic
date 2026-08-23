@@ -28,9 +28,9 @@ namespace Backend.Service.Service
                     var overlapping = appointments
                     .Where(a => a.Time_start < slotEnd && a.Time_end > cursor);
 
-                    if (overlapping.Any(a => a.Status == "Confirmed"))
+                    if (overlapping.Any(a => a.StatusId == 2 || a.StatusId == 6))
                         status = "confirmed";
-                    else if (overlapping.Any(a => a.Status == "Pending"))
+                    else if (overlapping.Any(a => a.StatusId == 1))
                         status = "reserved";
 
 

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 namespace Backend.MiddleWare
@@ -38,23 +39,39 @@ namespace Backend.MiddleWare
                         ValidIssuer = _settings.Issuer,
                         ValidAudience = _settings.Audience,
                         IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ClockSkew = System.TimeSpan.Zero
+                        ClockSkew = TimeSpan.Zero
                     }, out SecurityToken validatedToken);
 
                     var jwtToken = (JwtSecurityToken)validatedToken;
-                    var zaloId = jwtToken.Claims.FirstOrDefault(c => c.Type == "zalo_id")?.Value;
+
+                    // Lấy zalo_id
+                    var zaloId = jwtToken.Claims
+                        .FirstOrDefault(c => c.Type == "zalo_id")
+                        ?.Value;
+
                     if (!string.IsNullOrEmpty(zaloId))
                     {
                         context.Items["zalo_id"] = zaloId;
                     }
+
+                    // ✅ Lấy role
+                    var role = jwtToken.Claims
+                        .FirstOrDefault(c => c.Type == ClaimTypes.Role)
+                        ?.Value;
+
+                    if (!string.IsNullOrEmpty(role))
+                    {
+                        context.Items["role"] = role;
+                    }
                 }
                 catch
                 {
-                    // invalid token => ignore, endpoint can return Unauthorized
+                    // Token không hợp lệ → bỏ qua, endpoint tự xử lý Unauthorized
                 }
             }
 
             await _next(context);
         }
+
     }
 }

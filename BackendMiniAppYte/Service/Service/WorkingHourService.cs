@@ -22,7 +22,7 @@ namespace Backend.Service.Service
 
             if(workingHour == null)
             {
-                throw new KeyNotFoundException("Not find data ");
+                throw new Exception("Not find data ");
             }
 
             return workingHour;
@@ -60,6 +60,8 @@ namespace Backend.Service.Service
             {
                 throw new KeyNotFoundException("Not find to update");
             }
+            await unitOfWork.SaveChanges();
+
         }
 
 

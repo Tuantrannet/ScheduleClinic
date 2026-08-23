@@ -17,7 +17,7 @@ namespace Backend.Service.Service
             this._unitOfWork = unitOfWork;
             this._refreshTokenRepo = refreshTokenRepo;
         }
-        public async Task<RefreshToken> CreateRefreshTokenAsync(string zaloId)
+        public async Task<RefreshToken> CreateRefreshTokenAsync()
         {
             var token = GenerateRefreshTokenString();
 

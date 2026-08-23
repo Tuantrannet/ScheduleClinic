@@ -1,4 +1,5 @@
 ﻿using Backend.Enities;
+using Backend.Filters;
 using Backend.Service.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,12 +17,13 @@ namespace Backend.Controllers
             this.workingHourService = workingHourService;
         }
 
-        // GET: api/WorkingHour/{id}
+
         [HttpGet]
         [Route("getDetail")]
-        public async Task<ActionResult> GetByIdAsync([FromQuery]int id)
+        [ZaloAuthorizeRole("Manager")]
+        public async Task<ActionResult> GetAsync()
         {
-            var result = await workingHourService.GetByIdAsync(id);
+            var result = await workingHourService.GetByIdAsync(1);
             return Ok(result);
         }
 
@@ -46,6 +48,7 @@ namespace Backend.Controllers
         // PUT: api/WorkingHour/{id}
         [HttpPut]
         [Route("update")]
+        [ZaloAuthorizeRole("Manager")]
         public async Task<ActionResult> UpdateAsync([FromBody] WorkingHour workingHour)
         {
             var updated = await workingHourService.UpdateAsync(workingHour);

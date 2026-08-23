@@ -10,9 +10,14 @@ namespace Backend.MiddleWare
         {
             //Appointment
             CreateMap<Appointment, AppointmentDto>()
-                    .ForMember( dest => dest.PatientInfo , opt => opt.MapFrom(src => src.PatientInformation));
+            .ForMember(dest => dest.Status,
+                opt => opt.MapFrom(src => src.Status.Name))
+            .ForMember(dest => dest.TimeStart,
+                opt => opt.MapFrom(src => src.Time_start))
+            .ForMember(dest => dest.TimeEnd,
+                opt => opt.MapFrom(src => src.Time_end));
 
-            CreateMap<PatientInformation, PatientInfoDto>();
-        }
+
+            CreateMap<PatientInformation, PatientInfoDto>();        }
     }
 }

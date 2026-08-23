@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Backend.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace Backend.MiddleWare
@@ -34,6 +35,10 @@ namespace Backend.MiddleWare
 
             response.StatusCode = ex switch
             {
+                ForbiddenException => (int)HttpStatusCode.Forbidden,
+                NotFoundException => (int)HttpStatusCode.NotFound,
+                BadRequestException => (int)HttpStatusCode.BadRequest,
+                ConflictException => (int)HttpStatusCode.Conflict,
                 ArgumentNullException => (int)HttpStatusCode.BadRequest,
                 ArgumentException => (int)HttpStatusCode.BadRequest,
                 KeyNotFoundException => (int)HttpStatusCode.NotFound,

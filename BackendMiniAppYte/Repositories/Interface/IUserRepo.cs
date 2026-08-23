@@ -16,7 +16,7 @@ namespace Backend.Repositories.Interface
 
         Task<bool> CheckUserIsExist(string userName);
 
-        Task DeleteAsync(int id);
+        Task<bool> DeleteAsync(int id);
 
     }
 }

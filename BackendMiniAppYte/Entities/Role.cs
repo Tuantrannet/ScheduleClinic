@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Backend.Entities
 {
@@ -9,6 +10,7 @@ namespace Backend.Entities
 
         public string RoleName { get; set; }
 
-        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
+        [JsonIgnore]
+        public ICollection<User> Users { get; set; } = new List<User>();
     }
 }

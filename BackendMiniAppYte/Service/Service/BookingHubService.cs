@@ -22,6 +22,12 @@ namespace Backend.Service.Service
                 {
                     date = date.ToString("yyyy-MM-dd")
                 });
+            
+            await _hub.Clients.Group("admin-room")
+                .SendAsync("SlotChanged", new
+                {
+                    date = date.ToString("yyyy-MM-dd")
+                });
         }
     }
 }

@@ -17,14 +17,15 @@ namespace Backend.Service.Service
             _settings = opts.Value;
         }
 
-        public string GenerateAccessToken(string zaloId)
+        public string GenerateAccessToken(string zaloId, string role)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.SecretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-                new Claim("zalo_id", zaloId)
+                new Claim("zalo_id", zaloId),
+                new Claim(ClaimTypes.Role, role)
             };
 
             var token = new JwtSecurityToken(
@@ -39,7 +40,7 @@ namespace Backend.Service.Service
         }
 
 
-        public string GetPrincipalFromExpiredToken(string? token)
+        public TokenPrincipalInfo? GetPrincipalFromExpiredToken(string? token)
         {
             if (string.IsNullOrEmpty(token)) return null;
 
@@ -48,11 +49,10 @@ namespace Backend.Service.Service
                 ValidateAudience = true,
                 ValidateIssuer = true,
                 ValidateIssuerSigningKey = true,
-                // [FIX QUAN TRỌNG]: Sử dụng _settings.SecretKey thay vì chuỗi cứng
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.SecretKey)),
                 ValidIssuer = _settings.Issuer,
                 ValidAudience = _settings.Audience,
-                ValidateLifetime = false // Bỏ qua lỗi hết hạn
+                ValidateLifetime = false
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -66,14 +66,17 @@ namespace Backend.Service.Service
                     throw new SecurityTokenException("Invalid token");
                 }
 
-                return principal.Claims.FirstOrDefault(c => c.Type == "zalo_id")?.Value;
+                return new TokenPrincipalInfo
+                {
+                    ZaloId = principal.Claims.FirstOrDefault(c => c.Type == "zalo_id")?.Value,
+                    Role = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value
+                };
             }
-            catch (Exception ex)
+            catch
             {
-                // Bạn có thể log error tại đây để debug dễ hơn
-                Console.WriteLine("Token validation failed: " + ex.Message);
                 return null;
             }
         }
+
     }
 }

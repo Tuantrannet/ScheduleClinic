@@ -6,14 +6,15 @@ namespace Backend.Entities
     {
         [Key]
         public int UserId { get; set; }
+        public int RoleId { get; set; }
 
         [Required]
         public string UserName { get; set; }
-
+        
         public string PasswordHash { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
+        public Role Role { get; set; }
 
-        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

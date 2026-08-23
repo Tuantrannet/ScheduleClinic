@@ -8,13 +8,25 @@ namespace Backend.Service.IService
     {
         Task CreateAsync(RequestAppointment newAppointment);
 
-        Task<RequestAppointment> UpdateAsync(RequestAppointment requestAppointment);
+        Task UpdateConfirmedCancel(int Id);
 
-        Task DeleteAsync(int Id);
+        Task UpdateConfirmedWait(int Id);
 
-        Task<List<AppointmentDto>> GetListAppointmentByPatientId(string patientId, int page);
+        Task UpdateWait(int Id);
+
+        Task UpdatePendingCancel(int Id);
+
+        Task UpdateSelfCancel(int Id);
+
+        Task UpdateConfirmPending(int Id);
+
+        Task<List<AppointmentDto>> GetListAppointmentByFilter(AppointmentFilterRequest filter);
 
         Task<List<Appointment>> GetListAppointmentByDate(DateOnly date);
+
+        Task<PatientInformation> GetPatientById(int id);
+
+
 
 
 

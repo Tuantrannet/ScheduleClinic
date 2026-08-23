@@ -1,4 +1,5 @@
-﻿using Backend.Service.IService;
+﻿using Backend.Filters;
+using Backend.Service.IService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -18,12 +19,11 @@ namespace Backend.Controllers
             _appointmentService = appointmentService;
         }
 
-        [HttpGet("slots")]
+        [HttpGet]
+        [Route("slots")]
+        [ZaloIdAuthorize]
         public async Task<IActionResult> GetSlots(DateOnly date)
         {
-            var zaloId = HttpContext.Items["zalo_id"]?.ToString();
-            if (!HttpContext.Items.TryGetValue("zalo_id", out var zaloObj))
-                return Unauthorized();
             var wh = await _workingHourService.GetByIdAsync(1);
 
             var appointment = await _appointmentService.GetListAppointmentByDate(date);

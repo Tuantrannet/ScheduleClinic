@@ -4,11 +4,13 @@
     {
         public int AppointmentId { get; set; }
 
-        public string Status { get; set; } = string.Empty;
+        public string PatientId { get; set; }
 
+        public int StatusId { get; set; }
 
-        public DateTime AppointmentDate { get; set; }
+        public string Status { get; set; }   // ✅ StatusName
 
-        public PatientInfoDto? PatientInfo { get; set; }
+        public DateTime TimeStart { get; set; }
+        public DateTime TimeEnd { get; set; }
     }
 }

@@ -20,5 +20,10 @@ namespace Backend.Hubs
                 $"booking-{date}"
             );
         }
+
+        public async Task JoinAdminRoom()
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, "admin-room");
+        }
     }
 }
