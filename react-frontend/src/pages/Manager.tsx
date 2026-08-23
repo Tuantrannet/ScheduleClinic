@@ -90,7 +90,7 @@ const PatientDetailModal: React.FC<DetailModalProps> = ({ booking, onClose }) =>
 };
 
 // Helper Row Component
-const InfoRow = ({ label, value, icon }: { label: string, value: string, icon: string }) => (
+const InfoRow = ({ label, value }: { label: string, value: string, icon?: string }) => (
   <div className="flex items-center justify-between">
     <span className="text-sm text-slate-500 font-medium">{label}</span>
     <span className="text-sm font-bold text-slate-800">{value}</span>
@@ -99,7 +99,7 @@ const InfoRow = ({ label, value, icon }: { label: string, value: string, icon: s
 
 // --- MAIN ADMIN DASHBOARD ---
 
-const AdminDashboard: React.FC = () => {
+const Manager: React.FC = () => {
   const navigate = useNavigate();
   const { bookings, updateStatus } = useBookingSystem();
   
@@ -236,4 +236,4 @@ const AdminDashboard: React.FC = () => {
   );
 };
 
-export default AdminDashboard;
+export default Manager;

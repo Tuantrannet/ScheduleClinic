@@ -2,13 +2,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-// Cập nhật kiểu trạng thái khớp với API
 export type SlotStatus = 'available' | 'reserved' | 'confirmed';
 
 export interface TimeSlot {
   id: number;
-  timeLabel: string; // Hiển thị: "08:00"
-  fullTime: string;  // Value: "08:00 - 08:10"
+  timeLabel: string; 
+  fullTime: string;  
   status: SlotStatus;
 }
 
@@ -25,7 +24,7 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
   selectedSlot, 
   onSelect, 
   isLoading,
-  duration
+  duration = 0 // Default value
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -58,26 +57,20 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
     ? slots.find(s => s.fullTime === selectedSlot)?.timeLabel || selectedSlot
     : "-- Chọn khung giờ --";
 
-  // Hàm helper để render style dựa trên status
   const getSlotStyle = (status: SlotStatus, isSelected: boolean) => {
-    if (isSelected) return 'bg-blue-600 text-white font-bold hover:bg-blue-700'; // Đã chọn
-
+    if (isSelected) return 'bg-blue-600 text-white font-bold hover:bg-blue-700';
     switch (status) {
-      case 'confirmed': // Đỏ - Không được chọn
-        return 'bg-red-50 text-red-400 cursor-not-allowed opacity-60';
-      case 'reserved': // Vàng - Được chọn (nhưng cảnh báo)
-        return 'bg-yellow-50 text-yellow-700 hover:bg-yellow-100 border-l-4 border-yellow-400';
-      case 'available': // Xanh - Trống
-        return 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border-l-4 border-emerald-400';
-      default:
-        return 'bg-slate-50 text-slate-700';
+      case 'confirmed': return 'bg-red-50 text-red-400 cursor-not-allowed opacity-60';
+      case 'reserved': return 'bg-yellow-50 text-yellow-700 hover:bg-yellow-100 border-l-4 border-yellow-400';
+      case 'available': return 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border-l-4 border-emerald-400';
+      default: return 'bg-slate-50 text-slate-700';
     }
   };
 
   const getStatusLabel = (status: SlotStatus) => {
     switch (status) {
       case 'confirmed': return 'Đã kín';
-      case 'reserved': return 'Sắp kín'; // Hoặc "Đang giữ chỗ"
+      case 'reserved': return 'Sắp kín';
       case 'available': return 'Còn trống';
       default: return '';
     }
@@ -87,7 +80,6 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
     <>
       <label className="text-sm font-semibold text-slate-700">Chọn giờ khám</label>
       
-      {/* Nút Trigger Dropdown */}
       <button
         ref={buttonRef}
         type="button"
@@ -106,14 +98,13 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
         </svg>
       </button>
 
-      {/* Chú thích màu sắc */}
       {slots.length > 0 && !isLoading && (
         <div className="flex flex-wrap gap-3 mt-2 text-[11px] text-slate-500">
           <div className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Còn trống
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-yellow-500"></span> Có người đang giữ (Vẫn chọn được)
+            <span className="w-2 h-2 rounded-full bg-yellow-500"></span> Có người giữ
           </div>
           <div className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-red-400"></span> Đã kín
@@ -121,7 +112,6 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
         </div>
       )}
 
-      {/* PORTAL CONTENT (Dropdown list) */}
       {isOpen && createPortal(
         <>
           <div className="fixed inset-0 z-[9998] bg-transparent" onClick={() => setIsOpen(false)} />
@@ -130,7 +120,7 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
             className="absolute z-[9999] bg-white border border-slate-200 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] max-h-[300px] overflow-y-auto animate-in fade-in zoom-in-95 duration-100 py-1"
           >
             {slots.map((slot) => {
-              const isDisabled = slot.status === 'confirmed'; // Chỉ disable màu đỏ
+              const isDisabled = slot.status === 'confirmed';
               const isSelected = selectedSlot === slot.fullTime;
               
               return (
@@ -161,10 +151,10 @@ const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
         document.body
       )}
 
-      {/* Thông tin thời lượng */}
-      {slots.length > 0 && duration && (
+      {/* CHỈ HIỂN THỊ KHI CÓ SLOT VÀ DURATION > 0 */}
+      {slots.length > 0 && duration > 0 && (
         <div className="mt-2 text-xs text-center text-slate-400">
-           Thời lượng khám: {duration} phút / ca
+           Thời lượng khám: <span className="font-semibold text-slate-600">{duration} phút</span> / ca
         </div>
       )}
     </>

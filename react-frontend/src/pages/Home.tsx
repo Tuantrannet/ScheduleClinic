@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { patientApi } from '../services/patientService'; // Import service
+import { patientApi } from '../services/patientService';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -14,60 +14,73 @@ const Home: React.FC = () => {
   const today = new Date();
   const dateStr = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
-  // State tên người dùng
+  // State thông tin người dùng
   const [userName, setUserName] = useState("Khách hàng");
+  const [userGender, setUserGender] = useState<string>(""); 
 
-  // --- LOGIC MỚI: GỌI API LẤY TÊN ---
+  // --- LOGIC AUTH & FETCH DATA ---
   useEffect(() => {
+    // 1. Kiểm tra Token ngay lập tức
+    const token = localStorage.getItem('accessToken');
+    
+    // [QUAN TRỌNG] Nếu không có token -> Về trang Onboarding
+    if (!token) {
+      navigate('/onboarding', { replace: true });
+      return; // Dừng logic phía dưới
+    }
+
     const fetchUserData = async () => {
-      // 1. Lấy token từ localStorage
-      const token = localStorage.getItem('accessToken');
-      
-      if (token) {
-        try {
-          // 2. Giải mã token để lấy zalo_id
-          // Token gồm 3 phần tách nhau bởi dấu chấm. Payload là phần thứ 2.
-          const base64Url = token.split('.')[1];
-          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-          const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-              return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-          }).join(''));
+      try {
+        // 2. Giải mã token để lấy zalo_id
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
 
-          const decodedToken = JSON.parse(jsonPayload);
-          // Trong JwtMiddleware, claim type là "zalo_id"
-          const zaloId = decodedToken["zalo_id"];
+        const decodedToken = JSON.parse(jsonPayload);
+        const zaloId = decodedToken["zalo_id"];
 
-          if (zaloId) {
-            // 3. Gọi API lấy thông tin chi tiết
-            const data = await patientApi.getDetail(zaloId, token);
-            
-            // Backend trả về PatientInfoDto, map field PatientName (hoặc patientName tùy config JSON của C#)
-            if (data && (data as any).patientName) {
-                setUserName((data as any).patientName);
-            } else if (data && (data as any).PatientName) {
-                setUserName((data as any).PatientName);
-            }
+        if (zaloId) {
+          // 3. Gọi API lấy thông tin chi tiết
+          const data = await patientApi.getDetail(zaloId, token);
+          
+          if (data) {
+              const name = (data as any).patientName || (data as any).PatientName;
+              if (name) setUserName(name);
+
+              const gender = (data as any).gender || (data as any).Gender;
+              if (gender) setUserGender(gender);
           }
-        } catch (error) {
-          console.error("Không thể lấy thông tin người dùng:", error);
-          // Fallback: Nếu lỗi API, thử lấy từ localStorage cũ nếu có
-          const localUser = localStorage.getItem('currentUser');
-          if (localUser) {
-             setUserName(JSON.parse(localUser).fullName);
-          }
+        }
+      } catch (error) {
+        console.error("Không thể lấy thông tin người dùng:", error);
+        // Fallback: Lấy từ localStorage cũ nếu API lỗi
+        const localUser = localStorage.getItem('currentUser');
+        if (localUser) {
+           const parsedUser = JSON.parse(localUser);
+           setUserName(parsedUser.fullName);
+           if (parsedUser.gender) setUserGender(parsedUser.gender);
         }
       }
     };
 
     fetchUserData();
-  }, []); // Chỉ chạy 1 lần khi mount
+  }, [navigate]); // Thêm navigate vào dependency
+
+  const getAvatarUrl = () => {
+    const g = userGender.toLowerCase().trim();
+    if (g === 'nữ' || g === 'female' || g === 'nu') {
+        return "https://cdn-icons-png.flaticon.com/512/3135/3135789.png"; 
+    }
+    return "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
+  };
 
   const banners = [
     { id: 1, src: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop", title: "Chăm sóc toàn diện" },
     { id: 2, src: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2028&auto=format&fit=crop", title: "Môi trường tiện ích" }
   ];
 
-  // Auto-play banner
   useEffect(() => {
     if (isDragging) return;
     const interval = setInterval(() => {
@@ -84,7 +97,6 @@ const Home: React.FC = () => {
     setActiveBannerIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
   };
 
-  // --- LOGIC TOUCH/DRAG ---
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
@@ -115,7 +127,7 @@ const Home: React.FC = () => {
           <h2 className="text-2xl font-bold text-slate-800">Xin Chào, <span className="text-blue-600">{userName}</span> 👋</h2>
         </div>
         <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-white shadow-sm">
-             <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Avatar" className="w-full h-full object-cover" />
+             <img src={getAvatarUrl()} alt="Avatar" className="w-full h-full object-cover" />
         </div>
       </div>
 

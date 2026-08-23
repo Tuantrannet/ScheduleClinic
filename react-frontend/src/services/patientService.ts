@@ -9,7 +9,6 @@ export interface UpdatePatientPayload {
   CCCD?: string | null;
 }
 
-// Payload khớp hoàn toàn với C# DTO
 export interface AddPatientPayload {
   PatientName: string; // [Required] StringLength(100)
   Gender: string;      // [Required]
